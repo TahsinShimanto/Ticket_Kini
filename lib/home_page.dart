@@ -4,7 +4,7 @@ import 'bus.dart';
 import 'my_account.dart';
 import 'my_ticket.dart';
 import 'train.dart';
-
+import '';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -127,7 +127,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selIndex,
           onTap: (index){
-            if(index==1) Navigator.push(context, MaterialPageRoute(builder: (context)=> MyTicket()));
+            if(index==1) Navigator.push(context, MaterialPageRoute(builder: (context)=> MyTicketsTab()));
             if(index==2) Navigator.push(context, MaterialPageRoute(builder: (context)=> MyAccount()));
             setState(() {
               _selIndex = index;

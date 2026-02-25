@@ -1,15 +1,30 @@
 import 'package:flutter/material.dart';
 
-class MyTicket extends StatefulWidget {
-  const MyTicket({super.key});
+class MyTicketsTab extends StatefulWidget {
+  const MyTicketsTab({super.key});
 
   @override
-  State<MyTicket> createState() => _MyTicketState();
+  State<MyTicketsTab> createState() => _MyTicketsTabState();
 }
 
-class _MyTicketState extends State<MyTicket> {
+class _MyTicketsTabState extends State<MyTicketsTab> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: Colors.white,
+
+      appBar: AppBar(
+        title: const Text(
+          "My Tickets",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.teal,
+        centerTitle: true,
+      ),
+
+      body: Container(),
+    );
   }
 }

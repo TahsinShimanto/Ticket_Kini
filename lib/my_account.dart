@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 
-class MyAccount extends StatefulWidget {
-  const MyAccount({super.key});
-
-  @override
-  State<MyAccount> createState() => _MyAccountState();
-}
-
-class _MyAccountState extends State<MyAccount> {
+class MyAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: Colors.white,
+
+      appBar: AppBar(
+        title: const Text(
+          "My Account",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.teal,
+        centerTitle: true,
+      ),
+
+      body: Container(),
+    );
   }
 }

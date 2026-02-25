@@ -14,7 +14,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
- /*
+ 
   @override
   void initState() {
     // TODO: implement initState
@@ -24,17 +24,17 @@ class _SplashScreenState extends State<SplashScreen> {
           context, MaterialPageRoute(builder: (context) => LoginScreen()));
     });
   }
-*/
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    Timer(const Duration(seconds: 4),(){
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => LoginScreen()));
-    });
-  }
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   // Temporarily disable navigation
+  //   // Timer(const Duration(seconds: 4),(){
+  //   //   Navigator.pushReplacement(
+  //   //       context, MaterialPageRoute(builder: (context) => LoginScreen()));
+  //   // });
+  // }
 
   @override
   Widget build(BuildContext context) {
