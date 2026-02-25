@@ -54,7 +54,7 @@ class ResultsScreen extends StatelessWidget {
               title: Text(item.name),
               subtitle: Text("Time: ${item.time} | Available: ${item.availableSeats}"),
               trailing: Text("\৳${item.fare}"),
-              // onTap: () => Navigator.push(
+               //onTap: () => Navigator.push(
               //     context,
               //     MaterialPageRoute(
               //         builder: (context) => SeatSelectionScreen(
