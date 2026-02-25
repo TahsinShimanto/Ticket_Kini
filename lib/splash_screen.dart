@@ -14,27 +14,26 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
- 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    Timer(const Duration(seconds: 4),(){
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => LoginScreen()));
-    });
-  }
-
 
   // @override
   // void initState() {
   //   super.initState();
-  //   // Temporarily disable navigation
-  //   // Timer(const Duration(seconds: 4),(){
-  //   //   Navigator.pushReplacement(
-  //   //       context, MaterialPageRoute(builder: (context) => LoginScreen()));
-  //   // });
+  //   Timer(const Duration(seconds: 4),(){
+  //     Navigator.pushReplacement(
+  //         context, MaterialPageRoute(builder: (context) => LoginScreen()));
+  //   });
   // }
+
+
+  @override
+  void initState() {
+    super.initState();
+    // Temporarily disable navigation
+    // Timer(const Duration(seconds: 4),(){
+    //   Navigator.pushReplacement(
+    //       context, MaterialPageRoute(builder: (context) => LoginScreen()));
+    // });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +43,19 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset( 'assets/logo.png', width: 120, height: 120, ),
-            SizedBox(height: 24,),
-            Text('Ticket Kini',style: TextStyle(fontSize: 20,color: Colors.white,fontStyle: FontStyle.italic),)
+
+            Image.asset( 'assets/logo.png', width: 450, height: 250, ),
+
+            Text(
+              'Ticket Kini',
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 2,
+              ),
+            )
+
           ],
         ),
       ),
