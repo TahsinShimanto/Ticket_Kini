@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-//import 'seat_selection_screen.dart';
+import 'seat_selection_screen.dart';
 
 class Transport {
   final String name;
   final String time;
   final double fare;
   final int availableSeats;
-  final String type; // 'Bus' or 'Train'
+  final String type;
 
   Transport({
     required this.name,
@@ -22,7 +22,13 @@ class ResultsScreen extends StatelessWidget {
   final String type;
   final String from;
   final String to;
-  ResultsScreen({required this.type, required this.from, required this.to});
+
+  const ResultsScreen({
+    super.key,
+    required this.type,
+    required this.from,
+    required this.to,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,37 +39,35 @@ class ResultsScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-    appBar: AppBar(
-    title: Text(
-    "Available $type",
-      style: const TextStyle(
-        fontWeight: FontWeight.bold,
+      appBar: AppBar(
+        title: Text(
+          "Available $type",
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.teal,
+        centerTitle: true,
       ),
-    ),
-    backgroundColor: Colors.teal,
-    centerTitle: true,
-    ),
 
-    body: ListView.builder(
+      body: ListView.builder(
         itemCount: results.length,
         itemBuilder: (context, index) {
           final item = results[index];
           return Card(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             child: ListTile(
               title: Text(item.name),
-              subtitle: Text("Time: ${item.time} | Available: ${item.availableSeats}"),
-              trailing: Text("\৳${item.fare}"),
-               //onTap: () => Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //         builder: (context) => SeatSelectionScreen(
-              //           transport: item,
-              //           from: from,
-              //           to: to,
-              //         )
-              //     )
-              // ),
+              subtitle: Text("Time: ${item.time} | Available: ${item.availableSeats} seats"),
+              trailing: Text("৳${item.fare.toStringAsFixed(0)}"),
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SeatSelectionScreen(
+                    transport: item,
+                    from: from,
+                    to: to,
+                  ),
+                ),
+              ),
             ),
           );
         },

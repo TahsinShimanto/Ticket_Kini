@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 import 'checkout_screen.dart';
+import 'results_screen.dart';
+
 class SeatSelectionScreen extends StatefulWidget {
-  const SeatSelectionScreen({super.key});
+  final Transport transport;
+  final String from;
+  final String to;
+
+  const SeatSelectionScreen({
+    super.key,
+    required this.transport,
+    required this.from,
+    required this.to,
+  });
 
   @override
   State<SeatSelectionScreen> createState() =>
@@ -14,22 +25,39 @@ class _SeatSelectionScreenState
   List<bool> selectedSeats =
   List.generate(28, (index) => false);
 
-  final double seatPrice = 750;
-
   int get selectedCount =>
       selectedSeats.where((seat) => seat).length;
 
   double get totalAmount =>
-      selectedCount * seatPrice;
+      selectedCount * widget.transport.fare;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Select Seats - X"),
+        title: Text("Select Seats - ${widget.transport.name}"),
+        backgroundColor: Colors.teal,
       ),
       body: Column(
         children: [
+
+          const SizedBox(height: 10),
+
+          // Route info
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(widget.from, style: const TextStyle(fontWeight: FontWeight.bold)),
+                const Icon(Icons.arrow_forward, size: 16),
+                Text(widget.to, style: const TextStyle(fontWeight: FontWeight.bold)),
+                const SizedBox(width: 12),
+                Text("৳${widget.transport.fare.toStringAsFixed(0)}/seat",
+                    style: const TextStyle(color: Colors.teal)),
+              ],
+            ),
+          ),
 
           const SizedBox(height: 10),
 
@@ -61,7 +89,6 @@ class _SeatSelectionScreenState
                 crossAxisSpacing: 12,
               ),
               itemBuilder: (context, index) {
-
                 return GestureDetector(
                   onTap: () {
                     setState(() {
@@ -107,8 +134,7 @@ class _SeatSelectionScreenState
                   children: [
                     Text(
                       "Selected Seats: $selectedCount",
-                      style: const TextStyle(
-                          fontSize: 16),
+                      style: const TextStyle(fontSize: 16),
                     ),
                     Text(
                       "Total: ৳${totalAmount.toStringAsFixed(2)}",
@@ -132,16 +158,13 @@ class _SeatSelectionScreenState
                         MaterialPageRoute(
                           builder: (_) =>
                               CheckoutScreen(
-                                seatCount:
-                                selectedCount,
-                                totalAmount:
-                                totalAmount,
+                                seatCount: selectedCount,
+                                totalAmount: totalAmount,
                               ),
                         ),
                       );
                     },
-                    child:
-                    const Text("Confirm Booking"),
+                    child: const Text("Confirm Booking"),
                   ),
                 )
               ],
@@ -158,8 +181,7 @@ class _SeatSelectionScreenState
       height: 20,
       decoration: BoxDecoration(
         color: color,
-        borderRadius:
-        BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(4),
       ),
     );
   }
