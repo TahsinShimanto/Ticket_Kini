@@ -29,8 +29,8 @@ class _SearchScreenState extends State<SearchScreen> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Colors.teal, // same color as MyAccount
-        centerTitle: true, // centers the text
+        backgroundColor: Colors.teal,
+        centerTitle: true,
       ),
 
 
