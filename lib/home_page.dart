@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'search_screen.dart';
 import 'bus.dart';
 import 'my_account.dart';
 import 'my_ticket.dart';
@@ -47,8 +47,11 @@ class _HomePageState extends State<HomePage> {
           SizedBox(height: screenHeight*0.05),
           GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Bus()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                  SearchScreen(transportType: 'Bus')));
             },
+
+
             child: Center(
               child: Container(
                 width: screenWidth*0.9,
@@ -82,7 +85,8 @@ class _HomePageState extends State<HomePage> {
           SizedBox(height: screenHeight*0.05),
           GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Train()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                  SearchScreen(transportType: 'Train')));
             },
             child: Center(
               child: Container(

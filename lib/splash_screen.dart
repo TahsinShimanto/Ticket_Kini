@@ -14,6 +14,18 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
+ /*
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Timer(const Duration(seconds: 4),(){
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => LoginScreen()));
+    });
+  }
+*/
+
   @override
   void initState() {
     // TODO: implement initState
@@ -32,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.directions_bus,size: 100,color: Colors.white),
+            Image.asset( 'assets/logo.png', width: 120, height: 120, ),
             SizedBox(height: 24,),
             Text('Ticket Kini',style: TextStyle(fontSize: 20,color: Colors.white,fontStyle: FontStyle.italic),)
           ],
