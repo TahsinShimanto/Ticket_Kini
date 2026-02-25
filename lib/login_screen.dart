@@ -40,6 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: screenWidth*0.65,
                     child: TextField(
                       decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.phone),
                           border: OutlineInputBorder(),
                           labelText: 'Mobile Number'
                       ),
@@ -52,6 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: TextField(
                       obscureText: true,
                       decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.lock),
                           border: OutlineInputBorder(),
                           labelText: 'Password'
                       ),

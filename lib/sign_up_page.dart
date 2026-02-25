@@ -50,6 +50,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     width: screenWidth*0.65,
                     child: TextField(
                       decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.person),
                           border: OutlineInputBorder(),
                           labelText: 'Full Name'
                       ),
@@ -61,6 +62,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     width: screenWidth*0.65,
                     child: TextField(
                       decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.phone),
                           border: OutlineInputBorder(),
                           labelText: 'Mobile Number'
                       ),
@@ -73,6 +75,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     child: TextField(
                       obscureText: true,
                       decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.lock),
                           border: OutlineInputBorder(),
                           labelText: 'Password'
                       ),
@@ -84,6 +87,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     width: screenWidth*0.65,
                     child: TextField(
                       decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.credit_card),
                           border: OutlineInputBorder(),
                           labelText: 'NID Number'
                       ),
