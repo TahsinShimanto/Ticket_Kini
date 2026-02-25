@@ -29,8 +29,9 @@ class _SignUpPageState extends State<SignUpPage> {
 
       body: Center(
           child: Container(
-              width: screenWidth*0.75,
+              width: screenWidth*0.85,
               height: screenHeight*0.6,
+              margin: EdgeInsets.only(bottom: screenHeight*0.1),
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),

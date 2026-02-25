@@ -21,20 +21,26 @@ class _HomePageState extends State<HomePage> {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Color(0xFFFAFAFA),
+      appBar: AppBar(
+        backgroundColor:Color(0xFFFAFAFA),
+        automaticallyImplyLeading: false,
+        title: Text('Home',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Color(0xFF00897B),letterSpacing: 1.3),),
+
+      ),
       body: SafeArea(child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(height: screenHeight*0.02,),
           Row(
             children: [
-              SizedBox(height: screenHeight*0.05,),
-              SizedBox(width: screenWidth*0.03,),
-              Text('Hi there!',style: TextStyle(color: Colors.black45,fontSize: 16),),
+              SizedBox(width: screenWidth*0.05,),
+              Text('Hi there User!',style: TextStyle(color: Colors.black45,fontSize: 16),),
             ],
           ),
-          SizedBox(height: screenHeight*0.001),
+          SizedBox(height: screenHeight*0.008),
           Row(
             children: [
-              SizedBox(width: screenWidth*0.03,),
+              SizedBox(width: screenWidth*0.05,),
               Text("How would you like to travel?",style: TextStyle(color: Colors.black,fontSize: 24,fontWeight: FontWeight.bold),),
             ],
           ),
@@ -60,8 +66,8 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Bus', style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: Colors.black,),),
-                        SizedBox(height: screenHeight * 0.005),
+                        Text('Bus', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black,),),
+                        SizedBox(height: screenHeight * 0.008),
                         Text('Search Bus Tickets', style: TextStyle(fontSize: 14,color: Colors.black45,),),
                       ],
                     ),
@@ -95,8 +101,8 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Train', style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: Colors.black,),),
-                        SizedBox(height: screenHeight * 0.005),
+                        Text('Train', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black,),),
+                        SizedBox(height: screenHeight * 0.008),
                         Text('Search Train Tickets', style: TextStyle(fontSize: 14,color: Colors.black45,),),
                       ],
                     ),

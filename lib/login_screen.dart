@@ -20,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Color(0xFF00897B),
       body: Center(
           child: Container(
-              width: screenWidth*0.75,
+              width: screenWidth*0.85,
               height: screenHeight*0.55,
               decoration: BoxDecoration(
                   color: Colors.white,
