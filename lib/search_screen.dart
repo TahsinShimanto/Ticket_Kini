@@ -23,9 +23,18 @@ class _SearchScreenState extends State<SearchScreen> {
     Color themeColor = const Color(0xFF00897B);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Search ${widget.transportType}"),
-        backgroundColor: themeColor,
+        title: Text(
+          "Search ${widget.transportType}",
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.teal, // same color as MyAccount
+        centerTitle: true, // centers the text
       ),
+
+
+
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(

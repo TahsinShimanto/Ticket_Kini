@@ -33,8 +33,18 @@ class ResultsScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: AppBar(title: Text("Available $type")),
-      body: ListView.builder(
+    appBar: AppBar(
+    title: Text(
+    "Available $type",
+      style: const TextStyle(
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    backgroundColor: Colors.teal, // same color as MyAccount
+    centerTitle: true, // centers the text
+    ),
+
+    body: ListView.builder(
         itemCount: results.length,
         itemBuilder: (context, index) {
           final item = results[index];
