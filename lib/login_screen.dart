@@ -26,18 +26,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
-                    BoxShadow(color: Colors.black12,blurRadius: 20),
+                    BoxShadow(color: Colors.black12),
                   ]
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  //const Text('Login',style: TextStyle(fontSize: 30),),
                   Icon(Icons.account_circle_rounded,size: 70,color: Color(0xFF00897B),),
                   SizedBox(height: screenHeight*0.05),
 
                   SizedBox(
-                    width: screenWidth*0.65,
+                    width: screenWidth*0.7,
                     child: TextField(
                       decoration: InputDecoration(
                         prefixIcon: Icon(Icons.phone),
@@ -49,11 +48,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: screenWidth*0.06),
 
                   SizedBox(
-                    width: screenWidth*0.65,
+                    width: screenWidth*0.7,
                     child: TextField(
                       obscureText: true,
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.lock),
+                          suffixIcon: Icon(Icons.remove_red_eye),
                           border: OutlineInputBorder(),
                           labelText: 'Password'
                       ),

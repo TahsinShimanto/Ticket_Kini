@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ticket_kini/home_page.dart';
+
+import 'my_account.dart';
 
 class MyTicketsTab extends StatefulWidget {
   const MyTicketsTab({super.key});
@@ -8,23 +11,30 @@ class MyTicketsTab extends StatefulWidget {
 }
 
 class _MyTicketsTabState extends State<MyTicketsTab> {
+  int idx = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-
+      backgroundColor: Color(0xFFFAFAFA),
       appBar: AppBar(
-        title: const Text(
-          "My Tickets",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        backgroundColor: Colors.teal,
-        centerTitle: true,
+        title: Text('My Tickets',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color(0xFF00897B),letterSpacing: 1.2),),
       ),
-
-      body: Container(),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: idx,
+          onTap: (index){
+          if(index==0) Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
+          if(index==2) Navigator.push(context, MaterialPageRoute(builder: (context)=> MyAccount()));
+          setState(() {
+            idx = index;
+          });
+          },
+          selectedItemColor: Color(0xFF00897B),
+          unselectedItemColor: Colors.grey,
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.confirmation_num_outlined),label: 'My Ticket'),
+            BottomNavigationBarItem(icon: Icon(Icons.person),label: 'My Account')
+          ]),
     );
   }
 }

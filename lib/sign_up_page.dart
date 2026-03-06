@@ -30,7 +30,7 @@ class _SignUpPageState extends State<SignUpPage> {
       body: Center(
           child: Container(
               width: screenWidth*0.85,
-              height: screenHeight*0.6,
+              height: screenHeight*0.65,
               margin: EdgeInsets.only(bottom: screenHeight*0.1),
               decoration: BoxDecoration(
                   color: Colors.white,
@@ -42,12 +42,11 @@ class _SignUpPageState extends State<SignUpPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  //const Text('Create Account',style: TextStyle(fontSize: 30),),
                   Icon(Icons.person_add_alt_1_rounded,color: Color(0xFF00897B),size: 70,),
-                  SizedBox(height: screenHeight*0.04),
+                  SizedBox(height: screenHeight*0.03),
 
                   SizedBox(
-                    width: screenWidth*0.65,
+                    width: screenWidth*0.7,
                     child: TextField(
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.person),
@@ -59,7 +58,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   SizedBox(height: screenWidth*0.05),
 
                   SizedBox(
-                    width: screenWidth*0.65,
+                    width: screenWidth*0.7,
                     child: TextField(
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.phone),
@@ -71,20 +70,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   SizedBox(height: screenWidth*0.05),
 
                   SizedBox(
-                    width: screenWidth*0.65,
-                    child: TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.lock),
-                          border: OutlineInputBorder(),
-                          labelText: 'Password'
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: screenWidth*0.05),
-
-                  SizedBox(
-                    width: screenWidth*0.65,
+                    width: screenWidth*0.7,
                     child: TextField(
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.credit_card),
@@ -93,7 +79,33 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: screenWidth*0.1),
+                  SizedBox(height: screenWidth*0.05),
+
+                  SizedBox(
+                    width: screenWidth*0.7,
+                    child: TextField(
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.calendar_month),
+                          border: OutlineInputBorder(),
+                          labelText: 'Date of Birth'
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: screenWidth*0.05),
+
+                  SizedBox(
+                    width: screenWidth*0.7,
+                    child: TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.lock),
+                          suffixIcon: Icon(Icons.remove_red_eye),
+                          border: OutlineInputBorder(),
+                          labelText: 'Set Password'
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: screenWidth*0.08),
 
                   ElevatedButton(onPressed: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));

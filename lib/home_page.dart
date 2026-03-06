@@ -4,7 +4,7 @@ import 'bus.dart';
 import 'my_account.dart';
 import 'my_ticket.dart';
 import 'train.dart';
-import '';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selIndex = 0;
+  int idx = 0;
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -28,23 +28,21 @@ class _HomePageState extends State<HomePage> {
 
       ),
       body: SafeArea(child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: screenHeight*0.02,),
           Row(
             children: [
               SizedBox(width: screenWidth*0.05,),
-              Text('Hi there User!',style: TextStyle(color: Colors.black45,fontSize: 16),),
+              Text('Hi there User!',style: TextStyle(color: Colors.black45,fontSize: 14),),
             ],
           ),
-          SizedBox(height: screenHeight*0.008),
+
           Row(
             children: [
               SizedBox(width: screenWidth*0.05,),
-              Text("How would you like to travel?",style: TextStyle(color: Colors.black,fontSize: 24,fontWeight: FontWeight.bold),),
+              Text("How would you like to travel?",style: TextStyle(color: Colors.black,fontSize: 22),),
             ],
           ),
-          SizedBox(height: screenHeight*0.05),
+          SizedBox(height: screenHeight*0.03),
           GestureDetector(
             onTap: (){
               Navigator.push(context, MaterialPageRoute(builder: (context) =>
@@ -64,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(Icons.directions_bus,size: screenWidth*0.2,color: Color(0xFFE65100),),
+                    Icon(Icons.directions_bus,size: 90,color: Color(0xFFE65100),),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -75,14 +73,14 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
 
-                    Icon(Icons.arrow_right,size: screenWidth*0.1,color: Colors.black,)
+                    Icon(Icons.arrow_right,size: 50,color: Colors.black,)
                   ],
                 ),
               ),
             ),
           ),
 
-          SizedBox(height: screenHeight*0.05),
+          SizedBox(height: screenHeight*0.03),
           GestureDetector(
             onTap: (){
               Navigator.push(context, MaterialPageRoute(builder: (context) =>
@@ -100,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(Icons.directions_train,size: screenWidth*0.2,color: Color(0xFF1565C0),),
+                    Icon(Icons.directions_train,size: 90,color: Color(0xFF1565C0),),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -111,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
 
-                    Icon(Icons.arrow_right,size: screenWidth*0.1,color: Colors.black,)
+                    Icon(Icons.arrow_right,size: 50,color: Colors.black,)
                   ],
                 ),
               ),
@@ -125,12 +123,12 @@ class _HomePageState extends State<HomePage> {
 
 
       bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _selIndex,
+          currentIndex: idx,
           onTap: (index){
             if(index==1) Navigator.push(context, MaterialPageRoute(builder: (context)=> MyTicketsTab()));
             if(index==2) Navigator.push(context, MaterialPageRoute(builder: (context)=> MyAccount()));
             setState(() {
-              _selIndex = index;
+              idx = index;
             });
           },
           selectedItemColor: Color(0xFF00897B),
