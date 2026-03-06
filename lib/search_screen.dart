@@ -47,7 +47,9 @@ class _SearchScreenState extends State<SearchScreen> {
             Text("From", style: TextStyle(fontWeight: FontWeight.bold)),
             SizedBox(height: 8),
             DropdownButtonFormField<String>(
-              decoration: InputDecoration(border: OutlineInputBorder(), prefixIcon: Icon(Icons.location_on, color: themeColor)),
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.location_on, color: themeColor)),
               initialValue: fromLocation,
               hint: Text("Select Departure City"),
               items: locations.map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(),
