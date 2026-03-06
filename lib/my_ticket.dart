@@ -17,6 +17,7 @@ class _MyTicketsTabState extends State<MyTicketsTab> {
     return Scaffold(
       backgroundColor: Color(0xFFFAFAFA),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('My Tickets',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color(0xFF00897B),letterSpacing: 1.2),),
       ),
       bottomNavigationBar: BottomNavigationBar(

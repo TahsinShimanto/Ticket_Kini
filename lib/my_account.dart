@@ -15,6 +15,7 @@ class _MyAccountState extends State<MyAccount> {
     return Scaffold(
       backgroundColor: Color(0xFFFAFAFA),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('My Account',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color(0xFF00897B),letterSpacing: 1.2),),
       ),
       bottomNavigationBar: BottomNavigationBar(
