@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'results_screen.dart';
+import 'a.dart';
 
 class SearchScreen extends StatefulWidget {
   final String transportType;
@@ -118,10 +119,10 @@ class _SearchScreenState extends State<SearchScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ResultsScreen(
-                        type: widget.transportType,
-                        from: fromLocation!,
-                        to: toLocation!,
+                      builder: (context) => TransportListScreen(
+                        //type: widget.transportType,
+                       // from: fromLocation!,
+                       // to: toLocation!,
                       ),
                     ),
                   );
