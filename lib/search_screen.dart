@@ -27,8 +27,10 @@ class _SearchScreenState extends State<SearchScreen> {
           "Search ${widget.transportType}",
           style: const TextStyle(
             fontWeight: FontWeight.bold,
+              color: Colors.white,
           ),
         ),
+
         backgroundColor: Colors.teal,
         centerTitle: true,
       ),
@@ -45,7 +47,7 @@ class _SearchScreenState extends State<SearchScreen> {
             SizedBox(height: 8),
             DropdownButtonFormField<String>(
               decoration: InputDecoration(border: OutlineInputBorder(), prefixIcon: Icon(Icons.location_on, color: themeColor)),
-              value: fromLocation,
+              initialValue: fromLocation,
               hint: Text("Select Departure City"),
               items: locations.map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(),
               onChanged: (val) => setState(() => fromLocation = val),
@@ -58,7 +60,7 @@ class _SearchScreenState extends State<SearchScreen> {
             SizedBox(height: 8),
             DropdownButtonFormField<String>(
               decoration: InputDecoration(border: OutlineInputBorder(), prefixIcon: Icon(Icons.location_searching, color: themeColor)),
-              value: toLocation,
+              initialValue: toLocation,
               hint: Text("Select Destination City"),
               items: locations.map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(),
               onChanged: (val) => setState(() => toLocation = val),
