@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'newresult_screen.dart';
-
+import 'package:intl/intl.dart';
 class SearchScreen extends StatefulWidget {
   final String transportType;
   SearchScreen({required this.transportType});
@@ -13,7 +13,7 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   String? fromLocation;
   String? toLocation;
-
+  DateTime? datePicked;
 
   final List<String> cityList = ["Dhaka", "Chittagong", "Sylhet", "Rajshahi", "Khulna", "Rangpur", "Barishal", "Mymensingh"];
   @override
@@ -97,20 +97,45 @@ class _SearchScreenState extends State<SearchScreen> {
             SizedBox(height: 20),
             Text("Journey Date", style: TextStyle(fontWeight: FontWeight.bold)),
             SizedBox(height: 8),
+//===================================calender=======================================================
 
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey),
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Icon(Icons.calendar_month, color: themeColor),
-                ],
+           GestureDetector(
+              onTap: () async {
+                DateTime? picked = await showDatePicker(
+                  context: context,
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime.now().subtract(const Duration(days: 5)),
+                  lastDate: DateTime.now().add(const Duration(days: 5)),);
+
+                if(picked!=null){
+                  setState(() => datePicked = picked);
+                }
+
+              },
+
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.calendar_month, color: themeColor),
+                    SizedBox(width: 15,),
+                    Text(
+                      datePicked == null
+                          ? "Select Journey Date"
+                          : DateFormat('dd MMMM yyyy').format(datePicked!),
+                      style: TextStyle(fontSize: 16,color: datePicked == null ? Color(0xFF757575) : Colors.black,),
+                    ),
+
+                  ],
+                ),
               ),
             ),
+//===============================================================================================================================
 
             Spacer(),
 
@@ -121,7 +146,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 style: ElevatedButton.styleFrom(backgroundColor: themeColor),
 
                 onPressed: () {
-                  if (fromLocation == null || toLocation == null) {
+                  if (fromLocation == null || toLocation == null|| datePicked==null) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text("Please fill all details")),
                     );
