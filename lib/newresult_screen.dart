@@ -109,7 +109,7 @@ class TransportListScreen extends StatelessWidget {
                     Text(
                       item["name"],
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color(0xFF00897B),
                       ),
@@ -155,7 +155,7 @@ class TransportListScreen extends StatelessWidget {
                     SizedBox(height: 6),
 
                     SizedBox(
-                      height: 170,
+                      height: 185,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: activeCoachList.length,
@@ -179,7 +179,7 @@ class TransportListScreen extends StatelessWidget {
                                 Text(
                                   coach["name"],
                                   style: TextStyle(
-                                    fontSize: 14,
+                                    fontSize: 12,
                                     fontWeight: FontWeight.bold,
                                     color: Color(0xFF00897B),
                                   ),
