@@ -38,7 +38,6 @@ class TransportListScreen extends StatelessWidget {
     }
   }
 
-
   List get activeCoachList {
     if (type == "Bus") {
       return [
@@ -220,8 +219,8 @@ class TransportListScreen extends StatelessWidget {
                                        context,
                                         MaterialPageRoute(
                                           builder: (context) => NewSeatSelectionScreen(
-                                           //transport: "bus",
-                                           // from: "from",
+                                          // transport: item,
+                                          // from: "from",
                                            // to: "to",
                                           ),
                                         ),
@@ -263,3 +262,13 @@ class TransportListScreen extends StatelessWidget {
   }
 }
 
+// onTap: () => Navigator.push(
+// context,
+// MaterialPageRoute(
+// builder: (context) => SeatSelectionScreen(
+// transport: item,
+// from: from,
+// to: to,
+// ),
+// ),
+// ),

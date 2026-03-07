@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'checkout_screen.dart';
 import 'results_screen.dart';
-
+import 'newresult_screen.dart';
 class SeatSelectionScreen extends StatefulWidget {
   final Transport transport;
   final String from;
