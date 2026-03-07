@@ -1,187 +1,286 @@
 import 'package:flutter/material.dart';
 import 'checkout_screen.dart';
-import 'results_screen.dart';
-import 'newresult_screen.dart';
-class SeatSelectionScreen extends StatefulWidget {
-  final Transport transport;
-  final String from;
-  final String to;
 
-  const SeatSelectionScreen({
-    super.key,
-    required this.transport,
-    required this.from,
-    required this.to,
-  });
+class SeatSelectionScreen extends StatefulWidget{
+  const SeatSelectionScreen({super.key});
 
   @override
   State<SeatSelectionScreen> createState() =>
       _SeatSelectionScreenState();
 }
+class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
 
-class _SeatSelectionScreenState
-    extends State<SeatSelectionScreen> {
-
-  List<bool> selectedSeats =
-  List.generate(28, (index) => false);
-
+  List<bool> seatSelected = List.generate(32, (index) => false);
   int get selectedCount =>
-      selectedSeats.where((seat) => seat).length;
-
-  double get totalAmount =>
-      selectedCount * widget.transport.fare;
-
+      seatSelected.where((seat) => seat).length;
+  int get totalAmount=>
+      selectedCount*750;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Select Seats - ${widget.transport.name}"),
-        backgroundColor: Colors.teal,
-      ),
-      body: Column(
-        children: [
-
-          const SizedBox(height: 10),
-
-          // Route info
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Row(
+        appBar: AppBar(
+          title:Text("Select Seats - X"),
+          centerTitle: true,
+        ),
+        body: Column(
+          children: [
+            const SizedBox(height: 10),
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(widget.from, style: const TextStyle(fontWeight: FontWeight.bold)),
-                const Icon(Icons.arrow_forward, size: 16),
-                Text(widget.to, style: const TextStyle(fontWeight: FontWeight.bold)),
-                const SizedBox(width: 12),
-                Text("৳${widget.transport.fare.toStringAsFixed(0)}/seat",
-                    style: const TextStyle(color: Colors.teal)),
-              ],
-            ),
-          ),
+                Container(
+                  height:10,
+                  width: 10,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      border:Border.all(
+                          color: Colors.black
+                      )
 
-          const SizedBox(height: 10),
-
-          /// Legend
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _legendBox(Colors.grey.shade300),
-              const SizedBox(width: 8),
-              const Text("Available"),
-              const SizedBox(width: 20),
-              _legendBox(Color(0xFF00897B)),
-              const SizedBox(width: 8),
-              const Text("Selected"),
-            ],
-          ),
-
-          const SizedBox(height: 15),
-
-          /// Seats Grid
-          Expanded(
-            child: GridView.builder(
-              padding: const EdgeInsets.all(16),
-              itemCount: selectedSeats.length,
-              gridDelegate:
-              const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4,
-                mainAxisSpacing: 12,
-                crossAxisSpacing: 12,
-              ),
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      selectedSeats[index] =
-                      !selectedSeats[index];
-                    });
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: selectedSeats[index]
-                          ? Color(0xFF00897B)
-                          : Colors.grey.shade300,
-                      borderRadius:
-                      BorderRadius.circular(12),
-                    ),
-                    child: const Icon(
-                      Icons.event_seat,
-                      color: Colors.black54,
-                    ),
                   ),
-                );
-              },
-            ),
-          ),
 
-          /// Bottom Summary
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 10,
-                  color: Colors.black12,
-                )
-              ],
-            ),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Selected Seats: $selectedCount",
-                      style: const TextStyle(fontSize: 16),
-                    ),
-                    Text(
-                      "Total: ৳${totalAmount.toStringAsFixed(2)}",
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16),
-                    ),
-                  ],
+                ),
+                const SizedBox(width: 5),
+                Text("Avaiable"),
+
+                const SizedBox(width: 20),
+                Container(
+                  height: 10,
+                  width: 10,
+                  color: Color(0xFF00897B),
                 ),
 
-                const SizedBox(height: 12),
+                const SizedBox(width: 10),
+                Text("Selected"),
 
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: selectedCount == 0
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                seatBox(0),
+                const SizedBox(width: 5),
+                seatBox(1),
+                const SizedBox(width: 5),
+                seatBox(2),
+                const SizedBox(width: 5),
+                seatBox(3),
+                const SizedBox(width: 5),
+
+
+              ],
+            ),
+            const SizedBox(height: 5),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                seatBox(4),
+                const SizedBox(width: 5),
+                seatBox(5),
+                const SizedBox(width: 5),
+                seatBox(6),
+                const SizedBox(width: 5),
+                seatBox(7),
+                const SizedBox(width: 5),
+
+
+              ],
+            ),
+            const SizedBox(height: 5),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                seatBox(8),
+                const SizedBox(width: 5),
+                seatBox(9),
+                const SizedBox(width: 5),
+                seatBox(10),
+                const SizedBox(width: 5),
+                seatBox(11),
+                const SizedBox(width: 5),
+
+
+              ],
+            ),
+            const SizedBox(height: 5),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                seatBox(12),
+                const SizedBox(width: 5),
+                seatBox(13),
+                const SizedBox(width: 5),
+                seatBox(14),
+                const SizedBox(width: 5),
+                seatBox(15),
+                const SizedBox(width: 5),
+
+
+              ],
+            ),
+            const SizedBox(height: 5),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                seatBox(16),
+                const SizedBox(width: 5),
+                seatBox(17),
+                const SizedBox(width: 5),
+                seatBox(18),
+                const SizedBox(width: 5),
+                seatBox(19),
+                const SizedBox(width: 5),
+
+
+              ],
+            ),
+            const SizedBox(height: 5),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                seatBox(20),
+                const SizedBox(width: 5),
+                seatBox(21),
+                const SizedBox(width: 5),
+                seatBox(22),
+                const SizedBox(width: 5),
+                seatBox(23),
+                const SizedBox(width: 5),
+
+
+              ],
+            ),
+            const SizedBox(height: 5),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                seatBox(24),
+                const SizedBox(width: 5),
+                seatBox(25),
+                const SizedBox(width: 5),
+                seatBox(26),
+                const SizedBox(width: 5),
+                seatBox(27),
+                const SizedBox(width: 5),
+
+
+              ],
+            ),
+            const SizedBox(height: 5),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                seatBox(28),
+                const SizedBox(width: 5),
+                seatBox(29),
+                const SizedBox(width: 5),
+                seatBox(30),
+                const SizedBox(width: 5),
+                seatBox(31),
+                const SizedBox(width: 5),
+
+
+              ],
+            ),
+            const SizedBox(height: 30),
+
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 10,
+                    color: Colors.black12,
+                  )
+                ],
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment:
+                    MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Selected Seats: $selectedCount",
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                      Text(
+                        "Total:s $totalAmount",
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      foregroundColor: Colors.white,
+                    ),
+
+                    onPressed:selectedCount==0
                         ? null
-                        : () {
+                        :() {
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (_) =>
-                              CheckoutScreen(
-                                seatCount: selectedCount,
-                                totalAmount: totalAmount,
-                              ),
+                          builder:(_)=>
+                              CheckoutScreen(),
                         ),
                       );
+
                     },
-                    child: const Text("Confirm Booking"),
+                    child:Text("Confirm Booking"),
                   ),
-                )
-              ],
-            ),
-          ),
-        ],
-      ),
+
+
+                ],
+              ),
+
+
+
+            )
+
+          ],
+        )
+
+
+
+
     );
+
+
+
   }
 
-  Widget _legendBox(Color color) {
-    return Container(
-      width: 20,
-      height: 20,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(4),
+  Widget seatBox(int index) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          seatSelected[index]=!seatSelected[index];
+
+        });
+      },
+      child: Container(
+        height: 60,
+        width: 60,
+        margin: EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          color: seatSelected[index]
+              ? Color(0xFF00897B)
+              :Colors.grey.shade300,
+          border: Border.all(color: Colors.black),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: const Icon(
+          Icons.event_seat,
+          color: Colors.black54,
+        ),
       ),
     );
   }

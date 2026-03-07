@@ -62,9 +62,9 @@ class ResultsScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => SeatSelectionScreen(
-                    transport: item,
-                    from: from,
-                    to: to,
+                    //transport: item,
+                    //from: from,
+                    //to: to,
                   ),
                 ),
               ),
