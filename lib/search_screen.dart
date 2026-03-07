@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'results_screen.dart';
+
 import 'newresult_screen.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -23,7 +23,7 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Search ",
+          "Search ${widget.transportType} ",
           style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
         backgroundColor: Colors.teal,
@@ -139,13 +139,17 @@ class _SearchScreenState extends State<SearchScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => TransportListScreen(),
+                        builder: (context) => TransportListScreen(
+                        type:widget.transportType,
+                        from: fromLocation!,
+                        to: toLocation!,
+                        ),
                       ),
                     );
                 },
 
                 child: Text(
-                  "SEARCH",
+                  "Search ${widget.transportType}",
                   style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
                 ),
 
@@ -162,13 +166,3 @@ class _SearchScreenState extends State<SearchScreen> {
 
 }
 
-// Navigator.push(
-// context,
-// MaterialPageRoute(
-// builder: (context) => TransportListScreen(
-// //type: widget.transportType,
-// // from: fromLocation!,
-// // to: toLocation!,
-// ),
-// ),
-// );

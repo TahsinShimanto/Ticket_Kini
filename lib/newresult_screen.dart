@@ -2,8 +2,61 @@ import 'package:flutter/material.dart';
 
 import 'seat_selection_screen.dart';
 import 'newseat_selection_screen.dart';
+
+
 class TransportListScreen extends StatelessWidget {
 
+
+  final String type;
+  final String from;
+  final String to;
+
+   TransportListScreen({
+    super.key,
+    required this.type,
+    required this.from,
+    required this.to,
+  });
+
+
+
+//-----------------------------------------------------------------------------------------------------
+  List get activeTransportList {
+    if (type == "Bus") {
+      return [
+        {"name": "Green Line Paribahan", "time": "08:00 AM"},
+        {"name": "Shohagh Paribahan", "time": "09:30 AM"},
+        {"name": "Hanif Enterprise", "time": "11:00 AM"},
+        {"name": "Saintmartin Hyundai", "time": "02:30 PM"},
+        {"name": "Ena Transport", "time": "05:00 PM"},
+        {"name": "Desh Travels", "time": "10:30 PM"},
+        {"name": "London Express", "time": "11:15 PM"},
+        {"name": "Shyamoli NR", "time": "11:45 PM"},
+      ];
+    } else {
+      return transportlist;
+    }
+  }
+
+
+  List get activeCoachList {
+    if (type == "Bus") {
+      return [
+        {"name": "NON_AC", "fare": 680, "availableSeats": 40},
+        {"name": "AC_ECONOMY", "fare": 1200, "availableSeats": 30},
+        {"name": "AC_BUSINESS", "fare": 1500, "availableSeats": 24},
+        {"name": "SLEEPER", "fare": 2200, "availableSeats": 18},
+
+        {"name": "HYUNDAI_UNI", "fare": 2000, "availableSeats": 22},
+        {"name": "DECKER_AC", "fare": 1300, "availableSeats": 50},
+      ];
+    } else {
+      return coachlist;
+    }
+  }
+
+
+//----------------------------------------------------------------------------------------------------
 
   final List transportlist = [
     {"name": "Suborna Express", "time": "07:00 AM"},
@@ -33,7 +86,7 @@ class TransportListScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Transport List",
+          "Available $type",
           style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.white,),
         ),
         backgroundColor: Colors.teal,
@@ -43,9 +96,9 @@ class TransportListScreen extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: ListView.builder(
           scrollDirection: Axis.vertical,
-          itemCount: transportlist.length,
+          itemCount: activeTransportList.length,
           itemBuilder: (context, index) {
-            final item = transportlist[index];
+            final item = activeTransportList[index];
             return Card(
               child: Padding(
                 padding: const EdgeInsets.all(10),
@@ -67,7 +120,7 @@ class TransportListScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Dhaka",
+                            from,
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -76,7 +129,7 @@ class TransportListScreen extends StatelessWidget {
                           ),
                           Icon(Icons.arrow_forward, color: Color(0xFF00897B)),
                           Text(
-                            "Chittagong",
+                            to,
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -104,9 +157,9 @@ class TransportListScreen extends StatelessWidget {
                       height: 170,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: coachlist.length,
+                        itemCount: activeCoachList.length,
                         itemBuilder: (context, index) {
-                          final coach = coachlist[index];
+                          final coach = activeCoachList[index];
                           return Container(
                             padding: EdgeInsets.all(12),
                             decoration: BoxDecoration(
@@ -209,3 +262,4 @@ class TransportListScreen extends StatelessWidget {
     );
   }
 }
+
