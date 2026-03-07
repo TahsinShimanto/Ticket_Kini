@@ -10,12 +10,14 @@ class TransportListScreen extends StatelessWidget {
   final String type;
   final String from;
   final String to;
+  final String date;
 
    TransportListScreen({
     super.key,
     required this.type,
     required this.from,
     required this.to,
+     required this.date,
   });
 
 
@@ -215,6 +217,7 @@ class TransportListScreen extends StatelessWidget {
                                   height: 25,
                                   child: ElevatedButton(
                                     onPressed: () {
+
                                       Navigator.push(
                                        context,
                                         MaterialPageRoute(
