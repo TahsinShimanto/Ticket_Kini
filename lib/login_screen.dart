@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               borderRadius: BorderRadius.circular(20)
                           )
                       ),
-                      child: Text('Login',style: TextStyle(fontSize: 20,color: Colors.black),)
+                      child: Text('Login',style: TextStyle(fontSize: 20,color: Colors.white),)
                   ),
                   SizedBox(height: screenWidth*0.1),
 

@@ -22,7 +22,7 @@ class _SignUpPageState extends State<SignUpPage> {
         toolbarHeight: 30,
         backgroundColor: Color(0xFF00897B),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back,color: Colors.white,),
           onPressed: () => Navigator.pop(context),
         ),
       ),
@@ -117,7 +117,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               borderRadius: BorderRadius.circular(20)
                           )
                       ),
-                      child: Text('Register',style: TextStyle(fontSize: 20,color: Colors.black),)
+                      child: Text('Register',style: TextStyle(fontSize: 20,color: Colors.white),)
                   ),
 
 

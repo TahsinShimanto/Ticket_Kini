@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'search_screen.dart';
-import 'bus.dart';
 import 'my_account.dart';
 import 'my_ticket.dart';
-import 'train.dart';
+
 
 
 class HomePage extends StatefulWidget {
@@ -137,7 +136,7 @@ class _HomePageState extends State<HomePage> {
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.confirmation_num_outlined),label: 'My Ticket'),
-            BottomNavigationBarItem(icon: Icon(Icons.person),label: 'My Account')
+            BottomNavigationBarItem(icon: Icon(Icons.person),label: 'Account')
           ]
       ),
     );

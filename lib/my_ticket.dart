@@ -34,7 +34,7 @@ class _MyTicketsTabState extends State<MyTicketsTab> {
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.confirmation_num_outlined),label: 'My Ticket'),
-            BottomNavigationBarItem(icon: Icon(Icons.person),label: 'My Account')
+            BottomNavigationBarItem(icon: Icon(Icons.person),label: 'Account')
           ]),
     );
   }
