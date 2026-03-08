@@ -165,7 +165,8 @@ class _SearchScreenState extends State<SearchScreen> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => TransportListScreen(
-                        type:widget.transportType, date: DateFormat('dd-MM-yyyy').format(datePicked!),
+                        type:widget.transportType,
+                        date: DateFormat('dd-MM-yyyy').format(datePicked!),
                         from: fromLocation!,
                         to: toLocation!,
                         ),
