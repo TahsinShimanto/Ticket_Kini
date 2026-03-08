@@ -19,9 +19,9 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
         centerTitle: true,
       ),
 
-      
       body: Column(
         children: [
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -286,7 +286,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
-                  color: selectedMethod == "bKash" ? Colors.red : Colors.transparent,
+                  color: selectedMethod == "bKash" ? Colors.green : Colors.transparent,
                   width: 2,
                 ),
                 boxShadow: [
@@ -329,7 +329,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                   const SizedBox(width: 250),
 
                   if (selectedMethod == "bKash")
-                    Icon(Icons.check_circle, color: Colors.red),
+                    Icon(Icons.check_circle, color: Colors.green),
                 ],
 
 
@@ -351,7 +351,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(
-                    color: selectedMethod == "Nagad" ? Colors.red : Colors.transparent,
+                    color: selectedMethod == "Nagad" ? Colors.green : Colors.transparent,
                     width: 2,
                   ),
                   boxShadow: [
@@ -394,7 +394,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                     const SizedBox(width: 250),
 
                     if (selectedMethod == "Nagad")
-                      Icon(Icons.check_circle, color: Colors.red),
+                      Icon(Icons.check_circle, color: Colors.green),
 
                   ],
                 )
@@ -414,7 +414,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
-                  color: selectedMethod == "Visa/Mastercard" ? Colors.red : Colors.transparent,
+                  color: selectedMethod == "Visa/Mastercard" ? Colors.green : Colors.transparent,
                   width: 2,
                 ),
                 boxShadow: [
@@ -457,7 +457,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                   const SizedBox(width: 180),
 
                   if (selectedMethod == "Visa/Mastercard")
-                    Icon(Icons.check_circle, color: Colors.red),
+                    Icon(Icons.check_circle, color: Colors.green),
                 ],
               ),
             ),
@@ -465,7 +465,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
 
           const SizedBox(height: 20),
           Container(
-            padding: const EdgeInsets.all(30),
+            padding: const EdgeInsets.all(25),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: Colors.white,
@@ -493,7 +493,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                       ),
                     );
                   }, child: Text(
-                "confirm & pay",
+                "Confirm & Pay",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
