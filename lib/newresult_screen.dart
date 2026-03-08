@@ -200,7 +200,7 @@ class TransportListScreen extends StatelessWidget {
 
                                   ),
                                 ),
-                                SizedBox(height: 9),
+                                SizedBox(height: 16),
                                 Text(
                                   coach["availableSeats"].toString(),
                                   style: TextStyle(
@@ -210,7 +210,7 @@ class TransportListScreen extends StatelessWidget {
 
                                   ),
                                 ),
-                                SizedBox(height: 6),
+                                SizedBox(height: 14),
 
                                 SizedBox(
                                   width: 150,
