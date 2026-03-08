@@ -10,9 +10,14 @@ class _SucessScreenState extends State<SucessScreen>{
   Widget build(BuildContext){
     return Scaffold(
       appBar: AppBar(
-        title: Text("Checkout"),
+        title: Text(
+          "Checkout",
+          style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.white,),
+        ),
+        backgroundColor: Colors.teal,
         centerTitle: true,
       ),
+
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

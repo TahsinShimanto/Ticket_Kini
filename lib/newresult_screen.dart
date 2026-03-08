@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'seat_selection_screen.dart';
-import 'newseat_selection_screen.dart';
+
 
 
 class TransportListScreen extends StatelessWidget {
@@ -221,7 +221,7 @@ class TransportListScreen extends StatelessWidget {
                                       Navigator.push(
                                        context,
                                         MaterialPageRoute(
-                                          builder: (context) => NewSeatSelectionScreen(
+                                          builder: (context) => SeatSelectionScreen(
                                           // transport: item,
                                           // from: "from",
                                            // to: "to",

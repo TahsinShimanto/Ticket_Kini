@@ -19,9 +19,15 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title:Text("Select Seats - X"),
+          title: Text(
+            "Select Seats - X",
+            style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.white,),
+          ),
+          backgroundColor: Colors.teal,
           centerTitle: true,
         ),
+
+
         body: Column(
           children: [
             const SizedBox(height: 10),
@@ -218,7 +224,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
 
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
+                      backgroundColor: Color(0xFF00897B),
                       foregroundColor: Colors.white,
                     ),
 
@@ -235,7 +241,17 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
                       );
 
                     },
-                    child:Text("Confirm Booking"),
+
+                      child: Text(
+                        "Confirm Booking",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          letterSpacing: 1.2,
+                        ),
+                      ),
+
                   ),
 
 

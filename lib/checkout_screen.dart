@@ -11,15 +11,15 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
   Widget build(BuildContext){
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
         title: Text(
           "Checkout",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
+          style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.white,),
         ),
+        backgroundColor: Colors.teal,
         centerTitle: true,
       ),
+
+      
       body: Column(
         children: [
           Row(
@@ -34,7 +34,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                 ),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.blue,
+                  color: Color(0xFF00897B),
 
                 ),
                 padding: EdgeInsets.all(10.0),
@@ -42,10 +42,10 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
 
               Container(
                 height: 2,
-                width: 30,
+                width: 50,
                 decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
-                  color: Colors.blue,
+                  color: Color(0xFF00897B),
                 ),
 
               ),
@@ -58,7 +58,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                 ),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.blue,
+                  color: Color(0xFF00897B),
 
                 ),
                 padding: EdgeInsets.all(10.0),
@@ -66,7 +66,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
               ),
               Container(
                 height: 2,
-                width: 30,
+                width: 50,
                 decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
                   color: Colors.grey,
@@ -98,21 +98,21 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
               Text(
                 "Seats",
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: Color(0xFF00897B),
                 ),
               ),
               const SizedBox(width: 30),
               Text(
                 "Payment",
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: Color(0xFF00897B),
                 ),
               ),
               const SizedBox(width: 30),
               Text(
                 "Ticket",
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: Color(0xFF00897B),
                 ),
               ),
 
@@ -480,7 +480,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
               width: double.infinity,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Color(0xFF00897B),
                     foregroundColor: Colors.white,
                   ),
                   onPressed:(){
@@ -492,18 +492,17 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
 
                       ),
                     );
-                  }, child: Text("confirm & pay")),
+                  }, child: Text(
+                "confirm & pay",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  letterSpacing: 1.2,
+                ),
+              )),
             ),
           ),
-
-
-
-
-
-
-
-
-
 
         ],
       ),
