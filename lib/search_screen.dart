@@ -104,8 +104,8 @@ class _SearchScreenState extends State<SearchScreen> {
                 DateTime? picked = await showDatePicker(
                   context: context,
                   initialDate: DateTime.now(),
-                  firstDate: DateTime.now().subtract(const Duration(days: 5)),
-                  lastDate: DateTime.now().add(const Duration(days: 5)),);
+                  firstDate: DateTime.now(),
+                  lastDate: DateTime.now().add(const Duration(days: 10)),);
 
                 if(picked!=null){
                   setState(() => datePicked = picked);
