@@ -3,7 +3,8 @@ import 'package:ticket_kini/change_password.dart';
 import 'package:ticket_kini/log_out.dart';
 import 'package:ticket_kini/login_screen.dart';
 import 'package:ticket_kini/my_ticket.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'home_page.dart';
 
 class MyAccount extends StatefulWidget {
@@ -13,6 +14,44 @@ class MyAccount extends StatefulWidget {
 
 class _MyAccountState extends State<MyAccount> {
   int idx = 2;
+  String userName = "";
+  String userPhone = "";
+  String userNID = "";
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadUserData();
+  }
+
+  void loadUserData () async
+  {
+    User? user = FirebaseAuth.instance.currentUser;
+
+   if(user!=null)
+     {
+       DocumentSnapshot doc = await FirebaseFirestore.instance.collection('users').doc(user.uid).get();
+
+       setState(() {
+         userName = doc['name'];
+         userPhone = doc['phone'];
+         userNID = doc['nid'];
+       });
+     }
+   //bypass
+   else
+     {
+       setState(() {
+         userName = 'Test user';
+         userPhone = '0000';
+         userNID = '0000';
+       });
+     }
+
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -20,6 +59,7 @@ class _MyAccountState extends State<MyAccount> {
     return Scaffold(
       backgroundColor: Color(0xFFFAFAFA),
       appBar: AppBar(
+        backgroundColor: Color(0xFFFAFAFA),
         automaticallyImplyLeading: false,
         title: Text('Account',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Color(0xFF00897B),letterSpacing: 1.2),),
       ),
@@ -58,7 +98,7 @@ class _MyAccountState extends State<MyAccount> {
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text('Name: ',style: TextStyle(fontSize: 18,color: Colors.black54),),
+                                  Text('Name: $userName',style: TextStyle(fontSize: 18,color: Colors.black54),),
                                 ],
                               ),
                             ),
@@ -75,7 +115,7 @@ class _MyAccountState extends State<MyAccount> {
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text('Mobile Number: ',style: TextStyle(fontSize: 18,color: Colors.black54),),
+                                  Text('Phone Number: $userPhone',style: TextStyle(fontSize: 18,color: Colors.black54),),
                                 ],
                               ),
                             ),
@@ -92,7 +132,7 @@ class _MyAccountState extends State<MyAccount> {
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text('Date of Birth: ',style: TextStyle(fontSize: 18,color: Colors.black54),),
+                                  Text('NID Number: $userNID',style: TextStyle(fontSize: 18,color: Colors.black54),),
                                 ],
                               ),
                             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ticket_kini/auth_service.dart';
 import 'package:ticket_kini/login_screen.dart';
 
 class LogOut extends StatefulWidget {
@@ -9,6 +10,7 @@ class LogOut extends StatefulWidget {
 }
 
 class _LogOutState extends State<LogOut> {
+  final AuthService _authService = AuthService();
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -34,12 +36,20 @@ class _LogOutState extends State<LogOut> {
                   Text('You will need to log in again to access your account.', style: TextStyle(fontSize: 14, color: Colors.grey),),
                   SizedBox(height: screenHeight*0.07,),
                   ElevatedButton(
-                      onPressed: (){
+                      onPressed: () async{
+                        await _authService.logout();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              backgroundColor: Colors.white,
+                              duration: Duration(seconds: 1),
+                              content: Text("You're logged out",style: TextStyle(fontSize: 18,color: Color(0xFF00897B))),
+                            )
+                        );
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
                       },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF00897B),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(20)),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(25)),
                       minimumSize: Size(screenWidth*0.7, screenHeight*0.07)
                     ),
                       child: Text('Log Out', style: TextStyle(fontSize: 22,color: Colors.white),),

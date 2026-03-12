@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'home_page.dart';
+import 'auth_service.dart';
 
 
 class SignUpPage extends StatefulWidget {
@@ -11,6 +11,13 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController nidController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final AuthService _authService = AuthService();
+  final key = GlobalKey<FormState>();
+  bool obsecure = true;
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -28,101 +35,198 @@ class _SignUpPageState extends State<SignUpPage> {
       ),
 
       body: Center(
-          child: Container(
-              width: screenWidth*0.85,
-              height: screenHeight*0.65,
-              margin: EdgeInsets.only(bottom: screenHeight*0.1),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(color: Colors.black12,blurRadius: 20),
-                  ]
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.person_add_alt_1_rounded,color: Color(0xFF00897B),size: 70,),
-                  SizedBox(height: screenHeight*0.03),
-
-                  SizedBox(
-                    width: screenWidth*0.7,
-                    child: TextField(
-                      decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.person),
-                          border: OutlineInputBorder(),
-                          labelText: 'Full Name'
+          child: SingleChildScrollView(
+            child: Container(
+                width: screenWidth*0.85,
+                height: screenHeight*0.7,
+                margin: EdgeInsets.only(bottom: screenHeight*0.1),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(color: Colors.black12,blurRadius: 20),
+                    ]
+                ),
+                child: Form(
+                  key: key,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.person_add_alt_1_rounded,color: Color(0xFF00897B),size: 80,),
+                      SizedBox(height: screenHeight*0.04),
+            
+                      SizedBox(
+                        width: screenWidth*0.7,
+                        child: TextFormField(
+                          controller: nameController,
+                          decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.person),
+                              border: OutlineInputBorder(),
+                              labelText: 'Full Name'
+                          ),
+            
+                          validator: (val){
+                            if(val==null || val.isEmpty )
+                              {
+                                return 'Enter a valid Name';
+                              }
+            
+                            for(int i=0;i<val.length;i++)
+                              {
+                                if(!(val[i].codeUnitAt(0)>=65 && val[i].codeUnitAt(0)<=90
+                                || val[i].codeUnitAt(0)>=97 && val[i].codeUnitAt(0)<=122
+                                || val[i]==' '))
+                                  {
+                                    return 'Enter a valid Name';
+                                  }
+                              }
+            
+                                return null;
+            
+                          },
+            
+                        ),
                       ),
-                    ),
-                  ),
-                  SizedBox(height: screenWidth*0.05),
-
-                  SizedBox(
-                    width: screenWidth*0.7,
-                    child: TextField(
-                      decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.phone),
-                          border: OutlineInputBorder(),
-                          labelText: 'Mobile Number'
+                      SizedBox(height: screenHeight*0.03),
+            
+                      SizedBox(
+                        width: screenWidth*0.7,
+                        child: TextFormField(
+                          controller: phoneController,
+                          decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.phone),
+                              border: OutlineInputBorder(),
+                              labelText: 'Phone Number'
+                          ),
+            
+                          validator: (val){
+                            if(val == null || val.isEmpty){
+                              return 'Enter a valid Number';
+                            }
+                            if(double.tryParse(val) == null){
+                              return 'Enter a valid Number';
+                            }
+                            return null;
+                          },
+            
+                        ),
                       ),
-                    ),
-                  ),
-                  SizedBox(height: screenWidth*0.05),
-
-                  SizedBox(
-                    width: screenWidth*0.7,
-                    child: TextField(
-                      decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.credit_card),
-                          border: OutlineInputBorder(),
-                          labelText: 'NID Number'
+                      SizedBox(height: screenHeight*0.03),
+            
+                      SizedBox(
+                        width: screenWidth*0.7,
+                        child: TextFormField(
+                          controller: nidController,
+                          decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.credit_card),
+                              border: OutlineInputBorder(),
+                              labelText: 'NID Number'
+                          ),
+            
+                          validator: (val){
+                            if(val==null || val.isEmpty || int.tryParse(val)==null)
+                            {
+                              return 'Enter a NID Number';
+                            }
+                            else
+                            {
+                              return null;
+                            }
+                          },
+            
+                        ),
                       ),
-                    ),
-                  ),
-                  SizedBox(height: screenWidth*0.05),
-
-                  SizedBox(
-                    width: screenWidth*0.7,
-                    child: TextField(
-                      decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.calendar_month),
-                          border: OutlineInputBorder(),
-                          labelText: 'Date of Birth'
+                      SizedBox(height: screenHeight*0.03),
+            
+                      /*SizedBox(
+                        width: screenWidth*0.7,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.calendar_month),
+                              border: OutlineInputBorder(),
+                              labelText: 'Date of Birth'
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  SizedBox(height: screenWidth*0.05),
-
-                  SizedBox(
-                    width: screenWidth*0.7,
-                    child: TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.lock),
-                          suffixIcon: Icon(Icons.remove_red_eye),
-                          border: OutlineInputBorder(),
-                          labelText: 'Set Password'
+                      SizedBox(height: screenHeight*0.03),*/
+            
+                      SizedBox(
+                        width: screenWidth*0.7,
+                        child: TextFormField(
+                          controller: passwordController,
+                          obscureText: obsecure,
+                          decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.lock),
+                              suffixIcon: IconButton(onPressed: (){
+                                setState(() {
+                                  obsecure = !obsecure;
+                                });
+                              }, 
+                                  icon: Icon(Icons.remove_red_eye)),
+                              border: OutlineInputBorder(),
+                              labelText: 'Set Password'
+                          ),
+            
+                          validator: (val){
+                            if(val==null || val.isEmpty || val.length<6)
+                            {
+                              return 'Password must be at least 6 characters';
+                            }
+                            else
+                            {
+                              return null;
+                            }
+                          },
+            
+                        ),
                       ),
-                    ),
-                  ),
-                  SizedBox(height: screenWidth*0.08),
-
-                  ElevatedButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
-                  },
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF00897B),
-                          minimumSize: Size(screenWidth*0.5, screenHeight*0.05),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)
-                          )
+                      SizedBox(height: screenHeight*0.05),
+            
+                      ElevatedButton(onPressed: () async {
+                        if(key.currentState!.validate())
+                          {
+                            String? error = await _authService.signup(
+                                nameController.text, phoneController.text, nidController.text, passwordController.text
+                            );
+                            if(error==null)
+                              {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      backgroundColor: Colors.white60,
+                                      duration: Duration(seconds: 1),
+                                      content: Text('Registered Successfully',style: TextStyle(fontSize: 18,color: Color(0xFF00897B))),
+                                    )
+                                );
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+                              }
+                            else
+                              {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      backgroundColor: Colors.white,
+                                      duration: Duration(seconds: 2),
+                                      content: Text('This number is already Registered',style: TextStyle(fontSize: 18,color: Colors.red),)
+                                    )
+                                );
+                              }
+            
+                          }
+                      },
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Color(0xFF00897B),
+                              minimumSize: Size(screenWidth*0.5, screenHeight*0.06),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(25)
+                              )
+                          ),
+                          child: Text('Register',style: TextStyle(fontSize: 20,color: Colors.white),)
                       ),
-                      child: Text('Register',style: TextStyle(fontSize: 20,color: Colors.white),)
+            
+            
+                    ],
                   ),
-
-
-                ],
-              )
+                )
+            ),
           )
       ),
     );

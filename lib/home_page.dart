@@ -26,96 +26,99 @@ class _HomePageState extends State<HomePage> {
         title: Text('Home',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Color(0xFF00897B),letterSpacing: 1.3),),
 
       ),
-      body: SafeArea(child: Column(
-        children: [
-          Row(
-            children: [
-              SizedBox(width: screenWidth*0.05,),
-              Text('Hi there User!',style: TextStyle(color: Colors.black45,fontSize: 14),),
-            ],
-          ),
+      body: SafeArea(
+          child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: screenHeight*0.01),
 
-          Row(
-            children: [
-              SizedBox(width: screenWidth*0.05,),
-              Text("How would you like to travel?",style: TextStyle(color: Colors.black,fontSize: 22),),
-            ],
-          ),
-          SizedBox(height: screenHeight*0.03),
-          GestureDetector(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                  SearchScreen(transportType: 'Bus')));
-            },
+            Row(
+              children: [
+                SizedBox(width: screenWidth*0.05,),
+                Text('Hi there User!',style: TextStyle(color: Colors.black45,fontSize: 14),),
+              ],
+            ),
 
-
-            child: Center(
-              child: Container(
-                width: screenWidth*0.9,
-                height: screenHeight*0.2,
-                decoration: BoxDecoration(
-                  color: Color(0xFFE3F2FD),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                padding: EdgeInsets.all(screenWidth * 0.05),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Icon(Icons.directions_bus,size: 90,color: Color(0xFFE65100),),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('Bus', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black,),),
-                        SizedBox(height: screenHeight * 0.008),
-                        Text('Search Bus Tickets', style: TextStyle(fontSize: 14,color: Colors.black45,),),
-                      ],
-                    ),
-
-                    Icon(Icons.arrow_right,size: 50,color: Colors.black,)
-                  ],
+            Row(
+              children: [
+                SizedBox(width: screenWidth*0.05,),
+                Text("How would you like to travel?",style: TextStyle(color: Colors.black,fontSize: 22,fontWeight: FontWeight.bold),),
+              ],
+            ),
+            SizedBox(height: screenHeight*0.03),
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                    SearchScreen(transportType: 'Bus')));
+              },
+              child: Center(
+                child: Container(
+                  width: screenWidth*0.9,
+                  height: screenHeight*0.15,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFE3F2FD),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  padding: EdgeInsets.all(screenWidth * 0.05),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(Icons.directions_bus,size: 70,color: Color(0xFFE65100),),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Bus', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black,),),
+                          SizedBox(height: screenHeight * 0.008),
+                          Text('Search Bus Tickets', style: TextStyle(fontSize: 14,color: Colors.black45,),),
+                        ],
+                      ),
+        
+                      Icon(Icons.arrow_right,size: 40,color: Colors.black,)
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-
-          SizedBox(height: screenHeight*0.03),
-          GestureDetector(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                  SearchScreen(transportType: 'Train')));
-            },
-            child: Center(
-              child: Container(
-                width: screenWidth*0.9,
-                height: screenHeight*0.2,
-                decoration: BoxDecoration(
-                  color: Color(0xFFE3F2FD),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                padding: EdgeInsets.all(screenWidth * 0.05),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Icon(Icons.directions_train,size: 90,color: Color(0xFF1565C0),),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('Train', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black,),),
-                        SizedBox(height: screenHeight * 0.008),
-                        Text('Search Train Tickets', style: TextStyle(fontSize: 14,color: Colors.black45,),),
-                      ],
-                    ),
-
-                    Icon(Icons.arrow_right,size: 50,color: Colors.black,)
-                  ],
+        
+            SizedBox(height: screenHeight*0.03),
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                    SearchScreen(transportType: 'Train')));
+              },
+              child: Center(
+                child: Container(
+                  width: screenWidth*0.9,
+                  height: screenHeight*0.15,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFE3F2FD),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  padding: EdgeInsets.all(screenWidth * 0.05),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(Icons.directions_train,size: 70,color: Color(0xFF1565C0),),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Train', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black,),),
+                          SizedBox(height: screenHeight * 0.008),
+                          Text('Search Train Tickets', style: TextStyle(fontSize: 14,color: Colors.black45,),),
+                        ],
+                      ),
+        
+                      Icon(Icons.arrow_right,size: 40,color: Colors.black,)
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-
-        ],
+        
+          ],
+        ),
       )
 
       ),
