@@ -319,7 +319,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                       Text(
                         "Mobile wallet",
                         style: TextStyle(
-                          fontSize: 7,
+                          fontSize: 8,
                         ),
                       ),
 

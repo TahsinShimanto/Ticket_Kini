@@ -11,10 +11,23 @@ class SeatSelectionScreen extends StatefulWidget{
 class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
 
   List<bool> seatSelected = List.generate(32, (index) => false);
+  List<bool> seatBooked = List.generate(32, (index) => false);
   int get selectedCount =>
       seatSelected.where((seat) => seat).length;
   int get totalAmount=>
       selectedCount*750;
+  void initState(){
+    super.initState();
+    seatBooked[2]=true;
+    seatBooked[4]=true;
+    seatBooked[6]=true;
+    seatBooked[8]=true;
+    seatBooked[31]=true;
+    seatBooked[10]=true;
+    seatBooked[15]=true;
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -276,7 +289,9 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
 
   Widget seatBox(int index) {
     return GestureDetector(
-      onTap: () {
+      onTap:seatBooked[index]
+           ?null
+          :() {
         setState(() {
           seatSelected[index]=!seatSelected[index];
 
@@ -287,7 +302,9 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
         width: 60,
         margin: EdgeInsets.all(5),
         decoration: BoxDecoration(
-          color: seatSelected[index]
+          color:seatBooked[index]
+               ? Colors.green
+              : seatSelected[index]
               ? Color(0xFF00897B)
               :Colors.grey.shade300,
           border: Border.all(color: Colors.black),
