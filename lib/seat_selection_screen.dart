@@ -14,11 +14,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
   List<bool> seatBooked = List.generate(32, (index) => false);
   int get selectedCount =>
       seatSelected.where((seat) => seat).length;
-  int get totalAmount=>
-<<<<<<< HEAD
-      selectedCount*750;      //counting of the fare
-=======
-      selectedCount*750;
+  int get totalAmount=> selectedCount*750;
   void initState(){
     super.initState();
     seatBooked[2]=true;
@@ -31,14 +27,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
   }
 
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> 0aa253af7754bcd60ff1d84d3714733b3688b408
->>>>>>> Stashed changes
-=======
->>>>>>> 0aa253af7754bcd60ff1d84d3714733b3688b408
->>>>>>> Stashed changes
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
