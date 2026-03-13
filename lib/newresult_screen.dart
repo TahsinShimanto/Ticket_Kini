@@ -47,7 +47,6 @@ class TransportListScreen extends StatelessWidget {
         {"name": "AC_ECONOMY", "fare": 1200, "availableSeats": 30},
         {"name": "AC_BUSINESS", "fare": 1500, "availableSeats": 24},
         {"name": "SLEEPER", "fare": 2200, "availableSeats": 18},
-
         {"name": "HYUNDAI_UNI", "fare": 2000, "availableSeats": 22},
         {"name": "DECKER_AC", "fare": 1300, "availableSeats": 50},
       ];

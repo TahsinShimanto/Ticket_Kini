@@ -21,6 +21,13 @@ class _MyTicketsTabState extends State<MyTicketsTab> {
         automaticallyImplyLeading: false,
         title: Text('My Tickets',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color(0xFF00897B),letterSpacing: 1.2),),
       ),
+
+
+
+
+
+
+
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: idx,
           onTap: (index){
