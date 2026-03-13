@@ -2,7 +2,17 @@ import 'package:flutter/material.dart';
 import 'checkout_screen.dart';
 
 class SeatSelectionScreen extends StatefulWidget{
-  const SeatSelectionScreen({super.key});
+  final String type;
+  final String from;
+  final String to;
+  final String date;
+  const SeatSelectionScreen({
+    super.key,
+    required this.type,
+    required this.from,
+    required this.to,
+    required this.date,
+  });
 
   @override
   State<SeatSelectionScreen> createState() =>
@@ -33,7 +43,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            "Select Seats - X",
+            "Select Seats - ${widget.type}",
             style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.white,),
           ),
           backgroundColor: Colors.teal,

@@ -19,15 +19,19 @@ class Transport {
 
 
 class ResultsScreen extends StatelessWidget {
+  final Transport transport;
   final String type;
   final String from;
   final String to;
+  final String date;
 
   const ResultsScreen({
     super.key,
+    required this.transport,
     required this.type,
     required this.from,
     required this.to,
+    required this.date,
   });
 
   @override
@@ -62,9 +66,11 @@ class ResultsScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => SeatSelectionScreen(
-                    //transport: item,
-                    //from: from,
-                    //to: to,
+                    //transport:item,
+                    type: type,
+                    from: from,
+                    to: to,
+                    date:date,
                   ),
                 ),
               ),

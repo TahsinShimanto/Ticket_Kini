@@ -4,6 +4,7 @@ import 'seat_selection_screen.dart';
 
 
 
+
 class TransportListScreen extends StatelessWidget {
 
 
@@ -221,9 +222,11 @@ class TransportListScreen extends StatelessWidget {
                                        context,
                                         MaterialPageRoute(
                                           builder: (context) => SeatSelectionScreen(
-                                          // transport: item,
-                                          // from: "from",
-                                           // to: "to",
+                                            //transport:item,
+                                            type: type,
+                                           from: type,
+                                            to: to,
+                                            date: date,
                                           ),
                                         ),
                                        );
