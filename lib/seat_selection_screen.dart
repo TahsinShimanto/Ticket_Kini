@@ -32,6 +32,10 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> 0aa253af7754bcd60ff1d84d3714733b3688b408
+>>>>>>> Stashed changes
 =======
 >>>>>>> 0aa253af7754bcd60ff1d84d3714733b3688b408
 >>>>>>> Stashed changes
