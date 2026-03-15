@@ -189,6 +189,7 @@ class _MyTicketsTabState extends State<MyTicketsTab> {
                         ],
                       ),
                     ),
+
                   ),
                 );
               });

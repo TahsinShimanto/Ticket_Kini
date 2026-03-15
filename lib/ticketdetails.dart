@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:qr_flutter/qr_flutter.dart';
 class TicketDetails extends StatelessWidget {
 
   final Map<String, dynamic> ticket;
@@ -29,7 +29,11 @@ class TicketDetails extends StatelessWidget {
           ),
           child: Column(
             children: [
-              SizedBox(height:250,),  //use for qr show
+              QrImageView(
+                data: "${ticket['date']} ${ticket['departureTime']}",
+                version: QrVersions.auto,
+                size: 200.0,
+              ),  //use for qr show
 
               Text("Scan for Check-in" ,style: TextStyle(color: Colors.grey),),
               Divider(height: 30,thickness: 1,),
@@ -184,8 +188,15 @@ class TicketDetails extends StatelessWidget {
                   )
                 ],
               ),
-              const SizedBox(height: 5),
-
+              Spacer(),
+              ElevatedButton(onPressed: (){
+                Navigator.of(context).popUntil((route) => route.isFirst);
+              }, style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFF00897B),
+              ),child: Text(
+                "Download",
+                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+              ),),
 
 
             ],
