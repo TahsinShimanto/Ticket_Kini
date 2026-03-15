@@ -3,7 +3,7 @@ import 'package:ticket_kini/home_page.dart';
 
 import 'my_account.dart';
 import 'ticketdetails.dart';
-
+import 'package:intl/intl.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -14,12 +14,45 @@ class MyTicketsTab extends StatefulWidget {
   State<MyTicketsTab> createState() => _MyTicketsTabState();
 }
 
-
-
-
-
 class _MyTicketsTabState extends State<MyTicketsTab> {
   int idx = 1;
+
+
+//=======================deletePastTickets============================================================
+  @override
+  void initState() {
+    super.initState();
+    _deletePastTickets();
+  }
+
+  Future<void> _deletePastTickets() async {
+    final String uid = FirebaseAuth.instance.currentUser?.uid ?? "";
+    if (uid.isEmpty) return;
+
+    final today = DateTime.now();
+    final todayDateOnly = DateTime(today.year, today.month, today.day);
+    final dateFormat = DateFormat('dd-MM-yyyy');
+
+    final snapshot = await FirebaseFirestore.instance
+        .collection('tickets')
+        .where('userId', isEqualTo: uid)
+        .get();
+
+    final batch = FirebaseFirestore.instance.batch();
+    for (final doc in snapshot.docs) {
+      final data = doc.data();
+      try {
+        final journeyDate = dateFormat.parse(data['date'] ?? '');
+        if (journeyDate.isBefore(todayDateOnly)) {
+          batch.delete(doc.reference);
+        }
+      } catch (_) {}
+    }
+    await batch.commit();
+  }
+
+  //===================================================================================
+
   @override
   Widget build(BuildContext context) {
 
@@ -39,7 +72,8 @@ class _MyTicketsTabState extends State<MyTicketsTab> {
         builder: (context, snapshot) {
 
 
-          if (!snapshot.hasData) return Center(
+          if (!snapshot.hasData) {
+            return Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -50,9 +84,24 @@ class _MyTicketsTabState extends State<MyTicketsTab> {
               ],
             ),
           );
+          }
 
-          final tickets = snapshot.data!.docs;
+          final tickets = snapshot.data!.docs.toList()
 
+//======================for sorting date of myticket===================================================================
+            ..sort((a, b) {
+              final dateFormat = DateFormat('dd-MM-yyyy');
+              final aData = a.data() as Map<String, dynamic>;
+              final bData = b.data() as Map<String, dynamic>;
+              try {
+                final aDate = dateFormat.parse(aData['date'] ?? '01-01-2000');
+                final bDate = dateFormat.parse(bData['date'] ?? '01-01-2000');
+                return aDate.compareTo(bDate);
+              } catch (_) {
+                return 0;
+              }
+            });
+//===================================================================================
           return  ListView.builder(
 
               itemCount: tickets.length,

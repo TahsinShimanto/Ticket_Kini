@@ -155,7 +155,7 @@ class TransportListScreen extends StatelessWidget {
                     SizedBox(height: 6),
 
                     SizedBox(
-                      height: 185,
+                      height: 200,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: activeCoachList.length,
