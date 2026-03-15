@@ -1,13 +1,39 @@
 import 'package:flutter/material.dart';
 import 'sucess_screen.dart';
-class CheckoutScreen extends StatefulWidget{
-  const CheckoutScreen({super.key});
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+
+class CheckoutScreen extends StatefulWidget {
+  final String transportName;
+  final String transportType;
+  final String coachName;
+  final String from;
+  final String to;
+  final String date;
+  final String departureTime;
+  final List<String> selectedSeats;
+  final int totalAmount;
+
+  const CheckoutScreen({
+    super.key,
+    required this.transportName,
+    required this.transportType,
+    required this.coachName,
+    required this.from,
+    required this.to,
+    required this.date,
+    required this.departureTime,
+    required this.selectedSeats,
+    required this.totalAmount,
+  });
   @override
   State<CheckoutScreen>createState()=>
       _CheckoutScreenState();
 }
 class _CheckoutScreenState extends State<CheckoutScreen>{
   String selectedMethod = "bKash";
+
   Widget build(BuildContext){
     return Scaffold(
       appBar: AppBar(
@@ -145,7 +171,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                       ),
                     ),
                     Text(
-                      "Bus Express A",
+                      widget.transportName,
                       style: const TextStyle(fontSize: 16),
                     )
                   ],
@@ -161,7 +187,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                       ),
                     ),
                     Text(
-                      "Bus",
+                      widget.transportType,
                       style: const TextStyle(fontSize: 16),
                     )
                   ],
@@ -177,7 +203,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                       ),
                     ),
                     Text(
-                      "6",
+                      widget.selectedSeats.join(", "),
                       style: const TextStyle(fontSize: 16),
                     )
                   ],
@@ -193,7 +219,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                       ),
                     ),
                     Text(
-                      "18-02-2026",
+                      widget.date,
                       style: const TextStyle(fontSize: 16),
                     )
                   ],
@@ -219,7 +245,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                       ),
                     ),
                     Text(
-                      "500.00",
+                      "৳${widget.totalAmount}",
                       style: const TextStyle(fontSize: 16),
                     )
                   ],
@@ -235,7 +261,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                       ),
                     ),
                     Text(
-                      "20.00",
+                      "৳20.00",
                       style: const TextStyle(fontSize: 16),
                     )
                   ],
@@ -250,7 +276,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                       style: const TextStyle(fontSize: 20),
                     ),
                     Text(
-                      "520.00",
+                      "৳${widget.totalAmount+20}",
                       style: const TextStyle(fontSize: 30),
                     )
                   ],
@@ -484,6 +510,30 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                     foregroundColor: Colors.white,
                   ),
                   onPressed:(){
+//=================================firebase========================s===========================================
+                    // 1. Get current User ID
+                    String uid = FirebaseAuth.instance.currentUser?.uid ?? "unknown";
+
+                    // This Map is your "Ticket Object"
+                    Map<String, dynamic> ticketData = {
+                      'userId': uid,
+                      'transportName': widget.transportName,
+                      'transportType': widget.transportType,
+                      'coachName': widget.coachName,
+                      'from': widget.from,
+                      'to': widget.to,
+                      'date': widget.date,
+                      'departureTime': widget.departureTime,
+                      'selectedSeats': widget.selectedSeats, // Saved as an array
+                      'totalAmount': widget.totalAmount + 20, // Fare + Service fee
+                      'paymentMethod': selectedMethod,
+                      'bookedAt': FieldValue.serverTimestamp(), // To sort the list later
+                    };
+
+                    // Pushing the object into the 'tickets' collection vector
+                    FirebaseFirestore.instance.collection('tickets').add(ticketData);
+
+//================================================================================================================
                     Navigator.push(
                       context,
                       MaterialPageRoute(

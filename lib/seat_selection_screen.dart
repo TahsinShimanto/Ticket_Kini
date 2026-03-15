@@ -2,16 +2,24 @@ import 'package:flutter/material.dart';
 import 'checkout_screen.dart';
 
 class SeatSelectionScreen extends StatefulWidget{
-  final String type;
+  final String transportName;
+  final String transportType;
+  final String coachName;
+  final int fare;
   final String from;
   final String to;
   final String date;
+  final String departureTime;
   const SeatSelectionScreen({
     super.key,
-    required this.type,
+    required this.transportName,
+    required this.transportType,
+    required this.coachName,
+    required this.fare,
     required this.from,
     required this.to,
     required this.date,
+    required this.departureTime,
   });
 
   @override
@@ -22,9 +30,22 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
 
   List<bool> seatSelected = List.generate(32, (index) => false);
   List<bool> seatBooked = List.generate(32, (index) => false);
-  int get selectedCount =>
-      seatSelected.where((seat) => seat).length;
-  int get totalAmount=> selectedCount*750;
+  int get selectedCount =>seatSelected.where((seat) => seat).length;
+  int get totalAmount=> selectedCount*widget.fare;
+
+
+  //========================================================================
+  List<String> get selectedSeatLabels {
+    List<String> labels = [];
+    for (int i = 0; i < seatSelected.length; i++) {
+      if (seatSelected[i]) labels.add('S${i + 1}');
+    }
+    return labels;
+  }
+  //================================================================
+
+
+
   void initState(){
     super.initState();
     seatBooked[2]=true;
@@ -43,7 +64,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            "Select Seats - ${widget.type}",
+            "Select Seats - ${widget.transportType}",
             style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.white,),
           ),
           backgroundColor: Colors.teal,
@@ -236,7 +257,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
                         style: const TextStyle(fontSize: 16),
                       ),
                       Text(
-                        "Total:s $totalAmount",
+                        "Total: $totalAmount",
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16),
@@ -259,7 +280,17 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
                         context,
                         MaterialPageRoute(
                           builder:(_)=>
-                              CheckoutScreen(),
+                              CheckoutScreen(
+                                transportName: widget.transportName,
+                                transportType: widget.transportType,
+                                coachName: widget.coachName,
+                                from: widget.from,
+                                to: widget.to,
+                                date: widget.date,
+                                departureTime: widget.departureTime,
+                                selectedSeats: selectedSeatLabels,
+                                totalAmount: totalAmount,
+                              ),
                         ),
                       );
 

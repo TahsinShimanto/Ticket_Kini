@@ -222,11 +222,14 @@ class TransportListScreen extends StatelessWidget {
                                        context,
                                         MaterialPageRoute(
                                           builder: (context) => SeatSelectionScreen(
-                                            //transport:item,
-                                            type: type,
-                                           from: type,
+                                            transportName:item["name"],
+                                            transportType: type,
+                                            coachName: coach["name"],
+                                           fare: coach["fare"] as int,
+                                            from: from,
                                             to: to,
                                             date: date,
+                                            departureTime: item["time"],
                                           ),
                                         ),
                                        );
@@ -267,13 +270,3 @@ class TransportListScreen extends StatelessWidget {
   }
 }
 
-// onTap: () => Navigator.push(
-// context,
-// MaterialPageRoute(
-// builder: (context) => SeatSelectionScreen(
-// transport: item,
-// from: from,
-// to: to,
-// ),
-// ),
-// ),

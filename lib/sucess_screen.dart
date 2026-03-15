@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'checkout_screen.dart';
+import 'home_page.dart';
 
 class SucessScreen extends StatefulWidget{
   const SucessScreen({super.key});
@@ -7,6 +8,24 @@ class SucessScreen extends StatefulWidget{
       _SucessScreenState();
 }
 class _SucessScreenState extends State<SucessScreen>{
+
+  //=============================S=====================================================================
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      if (mounted) {
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage()),
+              (route) => false,
+        );
+      }
+    });
+  }
+  //===============================================================================================
+
+
+
   Widget build(BuildContext){
     return Scaffold(
       appBar: AppBar(
