@@ -1,8 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'search_screen.dart';
 import 'my_account.dart';
 import 'my_ticket.dart';
-
+import 'auth_service.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -14,6 +17,26 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int idx = 0;
+  String userName = "";
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadUserName();
+  }
+
+  void loadUserName() async{
+    User? user = FirebaseAuth.instance.currentUser;
+
+    if(user!=null)
+      {
+        DocumentSnapshot doc = await FirebaseFirestore.instance.collection('users').doc(user.uid).get();
+        setState(() {
+          userName = doc['name'];
+        });
+      }
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -35,7 +58,7 @@ class _HomePageState extends State<HomePage> {
             Row(
               children: [
                 SizedBox(width: screenWidth*0.05,),
-                Text('Hi there User!',style: TextStyle(color: Colors.black45,fontSize: 14),),
+                Text('Hi there $userName!',style: TextStyle(color: Colors.black45,fontSize: 14),),
               ],
             ),
 
@@ -58,6 +81,9 @@ class _HomePageState extends State<HomePage> {
                   decoration: BoxDecoration(
                     color: Color(0xFFE3F2FD),
                     borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(color: Colors.black26,blurRadius: 2)
+                    ]
                   ),
                   padding: EdgeInsets.all(screenWidth * 0.05),
                   child: Row(
@@ -94,6 +120,9 @@ class _HomePageState extends State<HomePage> {
                   decoration: BoxDecoration(
                     color: Color(0xFFE3F2FD),
                     borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(color: Colors.black26,blurRadius: 2)
+                      ]
                   ),
                   padding: EdgeInsets.all(screenWidth * 0.05),
                   child: Row(

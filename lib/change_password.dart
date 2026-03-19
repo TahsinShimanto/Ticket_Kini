@@ -23,6 +23,7 @@ class _ChangePasswordState extends State<ChangePassword> {
     return Scaffold(
       backgroundColor: Color(0xFFFAFAFA),
       appBar: AppBar(
+        backgroundColor: Color(0xFFFAFAFA),
         centerTitle: true,
         title: Text('Change Password',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Color(0xFF00897B),),),
       ),
@@ -127,7 +128,7 @@ class _ChangePasswordState extends State<ChangePassword> {
 
                       },
                       style: ElevatedButton.styleFrom(
-                        minimumSize: Size(screenWidth * 0.7, screenHeight * 0.06),
+                        minimumSize: Size(screenWidth * 0.8, screenHeight * 0.055),
                         backgroundColor: Color(0xFF00897B),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25),

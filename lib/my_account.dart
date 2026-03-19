@@ -44,9 +44,9 @@ class _MyAccountState extends State<MyAccount> {
    else
      {
        setState(() {
-         userName = 'Test user';
-         userPhone = '0000';
-         userNID = '0000';
+         userName = 'Nowfel Bhalo Hoye Jao';
+         userPhone = '0167676767';
+         userNID = '67676767';
        });
      }
 
@@ -64,7 +64,8 @@ class _MyAccountState extends State<MyAccount> {
         title: Text('Account',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Color(0xFF00897B),letterSpacing: 1.2),),
       ),
 
-      body: SafeArea(child: Padding(
+      body: SafeArea(
+          child: Padding(
           padding: EdgeInsets.all(screenWidth*0.05),
           child: SingleChildScrollView(
             child: Column(
@@ -73,85 +74,135 @@ class _MyAccountState extends State<MyAccount> {
               children: [
                 SizedBox(height: screenHeight*0.02,),
                 Center(
-                  child: Icon(Icons.account_circle,size: 110,),
+                  child: Container(
+                    width: screenWidth*0.27,
+                    height: screenHeight*0.12,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFE0F2F1),
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(color: Colors.black54,blurRadius: 0.3)
+                      ]
+                    ),
+                    child: Icon(Icons.person,size: 90,color: Color(0xFF00897B),),
+                  ),
                 ),
                 SizedBox(height: screenHeight*0.03,),
                 Text('User Details',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
-                SizedBox(
-                  width: screenWidth,
-                  child: Card(
-                    color: Colors.white70,
-                    child: Padding(
-                        padding: EdgeInsets.all(screenWidth*0.03),
-                      child: Center(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              width: screenWidth*0.85,
-                              height: screenHeight*0.06,
-                              padding: EdgeInsets.only(left: screenWidth*0.02),
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black12),
-                                borderRadius: BorderRadiusGeometry.circular(10)
+                Card(
+                  child: Padding(
+                      padding: EdgeInsetsGeometry.symmetric(vertical: screenHeight*0.015),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsGeometry.symmetric(horizontal: screenWidth*0.05,),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: screenWidth*0.12,
+                                height: screenHeight*0.055,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFE0F2F1),
+                                  borderRadius: BorderRadius.circular(15),
+                                  boxShadow: [
+                                    BoxShadow(color: Colors.black45,blurRadius: 0.5)
+                                  ]
+                                ),
+                                child: Icon(Icons.person,color: Color(0xFF00897B),),
                               ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
+                              SizedBox(width: screenWidth*0.05,),
+
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text('Name: $userName',style: TextStyle(fontSize: 18,color: Colors.black54),),
+                                  Text('User name',style: TextStyle(fontSize: 16,color: Colors.grey),),
+                                  Text(userName,style: TextStyle(fontSize: 20),),
                                 ],
                               ),
-                            ),
-                            SizedBox(height: screenHeight*0.01,),
-            
-                            Container(
-                              width: screenWidth*0.85,
-                              height: screenHeight*0.06,
-                              padding: EdgeInsets.only(left: screenWidth*0.02),
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.black12),
-                                  borderRadius: BorderRadiusGeometry.circular(10)
-                              ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text('Phone Number: $userPhone',style: TextStyle(fontSize: 18,color: Colors.black54),),
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: screenHeight*0.01,),
-            
-                            Container(
-                              width: screenWidth*0.85,
-                              height: screenHeight*0.06,
-                              padding: EdgeInsets.only(left: screenWidth*0.02),
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.black12),
-                                  borderRadius: BorderRadiusGeometry.circular(10)
-                              ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text('NID Number: $userNID',style: TextStyle(fontSize: 18,color: Colors.black54),),
-                                ],
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
+                        Divider(color: Colors.black12,),
+
+                        Padding(
+                          padding:  EdgeInsetsGeometry.symmetric(horizontal: screenWidth*0.05),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: screenWidth*0.12,
+                                height: screenHeight*0.055,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFE0F2F1),
+                                  borderRadius: BorderRadius.circular(15),
+                                    boxShadow: [
+                                      BoxShadow(color: Colors.black45,blurRadius: 0.5)
+                                    ]
+                                ),
+                                child: Icon(Icons.phone,color: Color(0xFF00897B),),
+                              ),
+                              SizedBox(width: screenWidth*0.05,),
+
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('Phone Number',style: TextStyle(fontSize: 16,color: Colors.grey),),
+                                  Text(userPhone,style: TextStyle(fontSize: 20),),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Divider(color: Colors.black12,),
+
+                        Padding(
+                          padding:  EdgeInsetsGeometry.symmetric(horizontal: screenWidth*0.05),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: screenWidth*0.12,
+                                height: screenHeight*0.055,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFE0F2F1),
+                                  borderRadius: BorderRadius.circular(15),
+                                    boxShadow: [
+                                      BoxShadow(color: Colors.black45,blurRadius: 0.5)
+                                    ]
+                                ),
+                                child: Icon(Icons.credit_card,color: Color(0xFF00897B),),
+                              ),
+                              SizedBox(width: screenWidth*0.05,),
+
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('NID',style: TextStyle(fontSize: 16,color: Colors.grey),),
+                                  Text(userNID,style: TextStyle(fontSize: 20),),
+                                ],
+                              ),
+                            ],
+                          ),
+                        )
+
+                      ],
                     ),
                   ),
                 ),
+
                 SizedBox(height: screenHeight*0.03),
                 Text('Manage Account',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
                 SizedBox(
                   width: screenWidth,
                   child: Card(
                     child: Padding(
-                      padding:  EdgeInsets.all(screenWidth*0.02),
+                      padding:  EdgeInsetsGeometry.symmetric(vertical: screenHeight*0.015),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           GestureDetector(
                             onTap: (){
@@ -160,25 +211,38 @@ class _MyAccountState extends State<MyAccount> {
                             child: Center(
                               child: Container(
                                 width: screenWidth*0.85,
-                                height: screenHeight*0.06,
                                 decoration: BoxDecoration(
+                                  color: Colors.white,
                                   border: Border.all(color: Colors.black12),
-                                  borderRadius: BorderRadiusGeometry.circular(10)
+                                  borderRadius: BorderRadiusGeometry.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(color: Colors.black12,blurRadius: 2)
+                                    ]
                                 ),
-                                child: Column(
-                                  children: [
-                                    Padding(
-                                      padding:  EdgeInsets.all(screenWidth*0.03),
+                                   child: Padding(
+                                      padding:  EdgeInsetsGeometry.symmetric(horizontal: screenWidth*0.05,vertical: screenHeight*0.01),
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
+                                          Container(
+                                            width: screenWidth*0.12,
+                                            height: screenHeight*0.055,
+                                            decoration: BoxDecoration(
+                                                color: Color(0xFFE0F2F1),
+                                                borderRadius: BorderRadius.circular(15),
+                                                boxShadow: [
+                                                  BoxShadow(color: Colors.black45,blurRadius: 0.5)
+                                                ]
+                                            ),
+                                            child: Icon(Icons.lock_outline,color: Color(0xFF00897B),),
+                                          ),
+                                          SizedBox(width: screenWidth*0.05,),
+
                                           Text('Change Password',style: TextStyle(fontSize: 18,color: Colors.black),),
+                                          Spacer(),
                                           Icon(Icons.arrow_forward_ios,size: 20,)
                                         ],
                                       ),
                                     ),
-                                  ],
-                                ),
                               ),
                             ),
                           ),
@@ -191,25 +255,38 @@ class _MyAccountState extends State<MyAccount> {
                             child: Center(
                               child: Container(
                                 width: screenWidth*0.85,
-                                height: screenHeight*0.06,
                                 decoration: BoxDecoration(
+                                    color: Colors.white,
                                     border: Border.all(color: Colors.black12),
-                                    borderRadius: BorderRadiusGeometry.circular(10)
+                                    borderRadius: BorderRadiusGeometry.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(color: Colors.black12,blurRadius: 2)
+                                    ]
                                 ),
-                                child: Column(
-                                  children: [
-                                    Padding(
-                                      padding:  EdgeInsets.all(screenWidth*0.03),
+
+                                    child: Padding(
+                                      padding:  EdgeInsetsGeometry.symmetric(horizontal: screenWidth*0.05,vertical: screenHeight*0.01),
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
+                                          Container(
+                                            width: screenWidth*0.12,
+                                            height: screenHeight*0.055,
+                                            decoration: BoxDecoration(
+                                                color: Color(0xFFE0F2F1),
+                                                borderRadius: BorderRadius.circular(15),
+                                                boxShadow: [
+                                                  BoxShadow(color: Colors.black45,blurRadius: 0.5)
+                                                ]
+                                            ),
+                                            child: Icon(Icons.logout,color: Color(0xFF00897B),),
+                                          ),
+                                          SizedBox(width: screenWidth*0.05,),
                                           Text('Log Out',style: TextStyle(fontSize: 18,color: Colors.red),),
+                                          Spacer(),
                                           Icon(Icons.arrow_forward_ios,size: 20,)
                                         ],
                                       ),
                                     ),
-                                  ],
-                                ),
                               ),
                             ),
                           )
