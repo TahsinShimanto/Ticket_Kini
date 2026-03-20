@@ -35,6 +35,10 @@ class _HomePageState extends State<HomePage> {
           userName = doc['name'];
         });
       }
+    else
+      {
+        userName = "User";
+      }
   }
 
   @override
@@ -53,7 +57,7 @@ class _HomePageState extends State<HomePage> {
           child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: screenHeight*0.01),
+            SizedBox(height: screenHeight*0.025),
 
             Row(
               children: [
@@ -61,6 +65,7 @@ class _HomePageState extends State<HomePage> {
                 Text('Hi there $userName!',style: TextStyle(color: Colors.black45,fontSize: 14),),
               ],
             ),
+            SizedBox(height: screenHeight*0.005),
 
             Row(
               children: [
@@ -79,10 +84,10 @@ class _HomePageState extends State<HomePage> {
                   width: screenWidth*0.9,
                   height: screenHeight*0.15,
                   decoration: BoxDecoration(
-                    color: Color(0xFFE3F2FD),
+                    color: Color(0xFFE0F2F1),
                     borderRadius: BorderRadius.circular(15),
                     boxShadow: [
-                      BoxShadow(color: Colors.black26,blurRadius: 2)
+                      BoxShadow(color: Colors.black26,blurRadius: 1,offset: Offset(1,1.5))
                     ]
                   ),
                   padding: EdgeInsets.all(screenWidth * 0.05),
@@ -100,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
         
-                      Icon(Icons.arrow_right,size: 40,color: Colors.black,)
+                      Icon(Icons.arrow_forward_ios,size: 18,color: Colors.black45,)
                     ],
                   ),
                 ),
@@ -118,10 +123,10 @@ class _HomePageState extends State<HomePage> {
                   width: screenWidth*0.9,
                   height: screenHeight*0.15,
                   decoration: BoxDecoration(
-                    color: Color(0xFFE3F2FD),
+                    color: Color(0xFFE0F2F1),
                     borderRadius: BorderRadius.circular(15),
                       boxShadow: [
-                        BoxShadow(color: Colors.black26,blurRadius: 2)
+                        BoxShadow(color: Colors.black26,blurRadius: 1,offset: Offset(1, 1.5))
                       ]
                   ),
                   padding: EdgeInsets.all(screenWidth * 0.05),
@@ -138,8 +143,8 @@ class _HomePageState extends State<HomePage> {
                           Text('Search Train Tickets', style: TextStyle(fontSize: 14,color: Colors.black45,),),
                         ],
                       ),
-        
-                      Icon(Icons.arrow_right,size: 40,color: Colors.black,)
+
+                      Icon(Icons.arrow_forward_ios,size: 18,color: Colors.black45,)
                     ],
                   ),
                 ),

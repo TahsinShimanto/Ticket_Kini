@@ -20,7 +20,7 @@ class _LogOutState extends State<LogOut> {
       appBar: AppBar(
         backgroundColor: Color(0xFFFAFAFA),
         centerTitle: true,
-        title: Text('Log Out',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Color(0xFF00897B),),),
+        title: Text('Log Out',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color(0xFF00897B),),),
       ),
 
       body: SafeArea(

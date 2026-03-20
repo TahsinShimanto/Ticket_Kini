@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
-                          BoxShadow(color: Colors.black12),
+                          BoxShadow(color: Colors.black12,blurRadius: 20,offset: Offset(1, 1.5)),
                         ]
                     ),
                     child: Form(
@@ -43,7 +43,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.account_circle_rounded,size: 80,color: Color(0xFF00897B),),
+                          Container(
+                            width: screenWidth*0.185,
+                            height: screenHeight*0.084,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFE0F2F1),
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(color: Colors.black26,blurRadius: 1,offset: Offset(1, 1.5))
+                              ]
+                            ),
+                            child: Icon(Icons.person,size: 60,color: Color(0xFF00897B),),
+                          ),
                           SizedBox(height: screenHeight*0.05),
 
                           SizedBox(
@@ -75,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               controller: passwordController,
                               obscureText: obsecure,
                               decoration: InputDecoration(
-                                  prefixIcon: Icon(Icons.lock),
+                                  prefixIcon: Icon(Icons.lock_outline),
                                   suffixIcon: IconButton(onPressed: (){
                                     setState(() {
                                       obsecure = !obsecure;
@@ -131,7 +142,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: Color(0xFF00897B),
-                                  minimumSize: Size(screenWidth*0.5, screenHeight*0.06),
+                                  shadowColor: Colors.black,
+                                  minimumSize: Size(screenWidth*0.65, screenHeight*0.055),
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(25)
                                   )

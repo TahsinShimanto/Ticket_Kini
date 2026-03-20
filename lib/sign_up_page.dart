@@ -44,7 +44,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
-                      BoxShadow(color: Colors.black12,blurRadius: 20),
+                      BoxShadow(color: Colors.black12,blurRadius: 20,offset: Offset(1, 1.5)),
                     ]
                 ),
                 child: Form(
@@ -52,7 +52,19 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.person_add_alt_1_rounded,color: Color(0xFF00897B),size: 80,),
+                      Container(
+                        width: screenWidth*0.185,
+                        height: screenHeight*0.084,
+                        decoration: BoxDecoration(
+                            color: Color(0xFFE0F2F1),
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(color: Colors.black26,blurRadius: 1,offset: Offset(1, 1.5))
+                            ]
+                        ),
+                        child: Icon(Icons.person_add_alt_1,size: 50,color: Color(0xFF00897B),),
+                      ),
+
                       SizedBox(height: screenHeight*0.04),
             
                       SizedBox(
@@ -60,7 +72,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         child: TextFormField(
                           controller: nameController,
                           decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.person),
+                              prefixIcon: Icon(Icons.person_2_outlined),
                               border: OutlineInputBorder(),
                               labelText: 'Full Name'
                           ),
@@ -156,7 +168,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           controller: passwordController,
                           obscureText: obsecure,
                           decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.lock),
+                              prefixIcon: Icon(Icons.lock_outline),
                               suffixIcon: IconButton(onPressed: (){
                                 setState(() {
                                   obsecure = !obsecure;
@@ -213,8 +225,9 @@ class _SignUpPageState extends State<SignUpPage> {
                           }
                       },
                           style: ElevatedButton.styleFrom(
+                            shadowColor: Colors.black,
                               backgroundColor: Color(0xFF00897B),
-                              minimumSize: Size(screenWidth*0.5, screenHeight*0.06),
+                              minimumSize: Size(screenWidth*0.65, screenHeight*0.055),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(25)
                               )

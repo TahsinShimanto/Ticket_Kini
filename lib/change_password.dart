@@ -25,7 +25,7 @@ class _ChangePasswordState extends State<ChangePassword> {
       appBar: AppBar(
         backgroundColor: Color(0xFFFAFAFA),
         centerTitle: true,
-        title: Text('Change Password',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Color(0xFF00897B),),),
+        title: Text('Change Password',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Color(0xFF00897B),),),
       ),
 
       body: SafeArea(
@@ -74,7 +74,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                         controller: confirmPassController,
                         obscureText: obsecureConfirmPass,
                         decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.sticky_note_2_rounded),
+                            prefixIcon: Icon(Icons.lock_reset_outlined),
                             suffixIcon: IconButton(onPressed: (){
                               setState(() {
                                 obsecureConfirmPass = !obsecureConfirmPass;

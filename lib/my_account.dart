@@ -66,7 +66,7 @@ class _MyAccountState extends State<MyAccount> {
 
       body: SafeArea(
           child: Padding(
-          padding: EdgeInsets.all(screenWidth*0.05),
+          padding: EdgeInsets.all(screenWidth*0.03),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -95,7 +95,7 @@ class _MyAccountState extends State<MyAccount> {
                     child: Column(
                       children: [
                         Padding(
-                          padding: EdgeInsetsGeometry.symmetric(horizontal: screenWidth*0.05,),
+                          padding: EdgeInsetsGeometry.symmetric(horizontal: screenWidth*0.05),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -118,16 +118,17 @@ class _MyAccountState extends State<MyAccount> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text('User name',style: TextStyle(fontSize: 16,color: Colors.grey),),
-                                  Text(userName,style: TextStyle(fontSize: 20),),
+                                  Text(userName,style: TextStyle(fontSize: 18),),
                                 ],
                               ),
                             ],
                           ),
                         ),
+                        SizedBox(height: screenHeight*0.007,),
                         Divider(color: Colors.black12,),
 
                         Padding(
-                          padding:  EdgeInsetsGeometry.symmetric(horizontal: screenWidth*0.05),
+                          padding:  EdgeInsetsGeometry.symmetric(horizontal: screenWidth*0.05,vertical: screenHeight*0.007),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -150,13 +151,14 @@ class _MyAccountState extends State<MyAccount> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text('Phone Number',style: TextStyle(fontSize: 16,color: Colors.grey),),
-                                  Text(userPhone,style: TextStyle(fontSize: 20),),
+                                  Text(userPhone,style: TextStyle(fontSize: 18),),
                                 ],
                               ),
                             ],
                           ),
                         ),
                         Divider(color: Colors.black12,),
+                        SizedBox(height: screenHeight*0.007,),
 
                         Padding(
                           padding:  EdgeInsetsGeometry.symmetric(horizontal: screenWidth*0.05),
@@ -182,7 +184,7 @@ class _MyAccountState extends State<MyAccount> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text('NID',style: TextStyle(fontSize: 16,color: Colors.grey),),
-                                  Text(userNID,style: TextStyle(fontSize: 20),),
+                                  Text(userNID,style: TextStyle(fontSize: 18),),
                                 ],
                               ),
                             ],
@@ -272,13 +274,13 @@ class _MyAccountState extends State<MyAccount> {
                                             width: screenWidth*0.12,
                                             height: screenHeight*0.055,
                                             decoration: BoxDecoration(
-                                                color: Color(0xFFE0F2F1),
+                                                color: Colors.red.shade50,
                                                 borderRadius: BorderRadius.circular(15),
                                                 boxShadow: [
                                                   BoxShadow(color: Colors.black45,blurRadius: 0.5)
                                                 ]
                                             ),
-                                            child: Icon(Icons.logout,color: Color(0xFF00897B),),
+                                            child: Icon(Icons.logout,color: Colors.red,),
                                           ),
                                           SizedBox(width: screenWidth*0.05,),
                                           Text('Log Out',style: TextStyle(fontSize: 18,color: Colors.red),),
