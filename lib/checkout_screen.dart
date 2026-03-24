@@ -510,11 +510,11 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                     foregroundColor: Colors.white,
                   ),
                   onPressed:(){
-//=================================firebase========================s===========================================
-                    // 1. Get current User ID
-                    String uid = FirebaseAuth.instance.currentUser?.uid ?? "unknown";
+//=================================firebase========================S===========================================
 
-                    // This Map is your "Ticket Object"
+                    String uid = FirebaseAuth.instance.currentUser?.uid ?? "unknown";  //get uid
+
+
                     Map<String, dynamic> ticketData = {
                       'userId': uid,
                       'transportName': widget.transportName,
@@ -524,14 +524,14 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                       'to': widget.to,
                       'date': widget.date,
                       'departureTime': widget.departureTime,
-                      'selectedSeats': widget.selectedSeats, // Saved as an array
-                      'totalAmount': widget.totalAmount + 20, // Fare + Service fee
+                      'selectedSeats': widget.selectedSeats,
+                      'totalAmount': widget.totalAmount + 20,
                       'paymentMethod': selectedMethod,
-                      'bookedAt': FieldValue.serverTimestamp(), // To sort the list later
+                      'bookedAt': FieldValue.serverTimestamp(),
                     };
 
-                    // Pushing the object into the 'tickets' collection vector
-                    FirebaseFirestore.instance.collection('tickets').add(ticketData);
+
+                    FirebaseFirestore.instance.collection('tickets').add(ticketData);  //push
 
 //================================================================================================================
                     Navigator.push(
