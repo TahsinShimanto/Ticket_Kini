@@ -204,10 +204,14 @@ class TicketDetails extends StatelessWidget {
                   );
                 }, style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFF00897B),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),child: Text(
                   "Download",
                   style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
                 ),),
+                  //SizedBox(width: 10,),
                   ElevatedButton(onPressed: (){
                     showDialog(context: context,
                       builder: (context)=> AlertDialog(
@@ -249,7 +253,12 @@ class TicketDetails extends StatelessWidget {
                       ),
                     );
                   },
-                    style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF00897B),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
                     child: Text("Cancel Ticket", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
                   )
                     ],
