@@ -213,6 +213,7 @@ class TransportListScreen extends StatelessWidget {
                                 SizedBox(height: 14),
 
                                 SizedBox(
+
                                   width: 150,
                                   height: 25,
                                   child: ElevatedButton(
@@ -236,12 +237,13 @@ class TransportListScreen extends StatelessWidget {
                                     },
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Color(0xFF00897B),
+                                      padding: EdgeInsets.symmetric(horizontal: 7, vertical: 0),
                                     ),
                                     child: Text(
                                       "BOOK NOW",
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 8,
+                                        fontSize: 11,
                                       ),
 
                                     ),

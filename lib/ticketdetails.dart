@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import 'home_page.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import 'my_ticket.dart';
 class TicketDetails extends StatelessWidget {
 
   final Map<String, dynamic> ticket;
@@ -191,17 +195,65 @@ class TicketDetails extends StatelessWidget {
                 ],
               ),
               Spacer(),
-              ElevatedButton(onPressed: (){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomePage()),
-                );
-              }, style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF00897B),
-              ),child: Text(
-                "Download",
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
-              ),),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children:[ ElevatedButton(onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomePage()),
+                  );
+                }, style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF00897B),
+                ),child: Text(
+                  "Download",
+                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+                ),),
+                  ElevatedButton(onPressed: (){
+                    showDialog(context: context,
+                      builder: (context)=> AlertDialog(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        insetPadding: EdgeInsets.symmetric(horizontal: 20),
+                        title: Text("Cancel Ticket"),
+                        content: Text("Are you sure you want to cancel this ticket?"),
+                        actions: [
+                          ElevatedButton(onPressed: ()=>Navigator.pop(context),
+                              style: ElevatedButton.styleFrom(
+                                side: BorderSide(color: Color(0xFF00897B), width: 1.5),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              child: Text("No,Don't Cancel")),
+                          SizedBox(width: 10,),
+                          ElevatedButton(onPressed: () async {
+                            await FirebaseFirestore.instance
+                                .collection('tickets')
+                                .doc(ticket['ticketId'])
+                                .delete();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) =>
+                                  MyTicketsTab()),
+                            );
+                          },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(0xFF00897B),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              child: Text("Yes,Cancel",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16))),
+                        ],
+                      ),
+                    );
+                  },
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                    child: Text("Cancel Ticket", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
+                  )
+                    ],
+              ),
 
 
             ],

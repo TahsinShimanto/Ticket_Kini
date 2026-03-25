@@ -34,7 +34,7 @@ class CheckoutScreen extends StatefulWidget {
 class _CheckoutScreenState extends State<CheckoutScreen>{
   String selectedMethod = "bKash";
 
-  Widget build(BuildContext){
+  Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -509,7 +509,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                     backgroundColor: Color(0xFF00897B),
                     foregroundColor: Colors.white,
                   ),
-                  onPressed:(){
+                  onPressed: () async {
 //=================================firebase========================S===========================================
 
                     String uid = FirebaseAuth.instance.currentUser?.uid ?? "unknown";  //get uid
@@ -530,8 +530,14 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                       'bookedAt': FieldValue.serverTimestamp(),
                     };
 
+                    DocumentReference ref = await FirebaseFirestore.instance
+                        .collection('tickets')
+                        .add(ticketData);
 
-                    FirebaseFirestore.instance.collection('tickets').add(ticketData);  //push
+                    await ref.update({'ticketId': ref.id});
+
+
+                   // FirebaseFirestore.instance.collection('tickets').add(ticketData);  //push
 
 //================================================================================================================
                     Navigator.push(
