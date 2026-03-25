@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'sucess_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'bKash_screen.dart';
+import 'nagad_screen.dart';
+import 'card_screen.dart';
 
 class CheckoutScreen extends StatefulWidget {
   final String transportName;
@@ -489,7 +491,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
             ),
           ),
 
-          const SizedBox(height: 20),
+          const SizedBox(height: 15),
           Container(
             padding: const EdgeInsets.all(25),
             decoration: BoxDecoration(
@@ -540,11 +542,38 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                    // FirebaseFirestore.instance.collection('tickets').add(ticketData);  //push
 
 //================================================================================================================
+                    Widget nextScreen;
+
+                    switch (selectedMethod) {
+                      case "bKash":
+                        nextScreen = BkashScreen(
+                          //amount: widget.totalAmount + 20,
+                          //ticketData: ticketData,
+                        );
+                        break;
+
+                      case "Nagad":
+                        nextScreen = NagadScreen(
+                         // amount: widget.totalAmount + 20,
+                          //ticketData: ticketData,
+                        );
+                        break;
+
+                      case "Visa/Mastercard":
+                        nextScreen = CardScreen(
+                          //amount: widget.totalAmount + 20,
+                          //ticketData: ticketData,
+                        );
+                        break;
+
+                      default:
+                        return;
+                    }
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:(_)=>
-                            SucessScreen(),
+                            nextScreen,
 
                       ),
                     );
