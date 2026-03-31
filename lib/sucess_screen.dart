@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'checkout_screen.dart';
 import 'home_page.dart';
 
 class SucessScreen extends StatefulWidget{
-  const SucessScreen({super.key});
+  final Map<String, dynamic> ticketData;
+  const SucessScreen({super.key, required this.ticketData});
   State<SucessScreen>createState()=>
       _SucessScreenState();
 }
@@ -12,6 +14,7 @@ class _SucessScreenState extends State<SucessScreen>{
   //=============================S=====================================================================
   void initState() {
     super.initState();
+        _save();
     Future.delayed(const Duration(seconds: 2), () {
       if (mounted) {
         Navigator.pushAndRemoveUntil(
@@ -21,6 +24,14 @@ class _SucessScreenState extends State<SucessScreen>{
         );
       }
     });
+  }
+
+  Future<void> _save() async {
+    DocumentReference ref = await FirebaseFirestore.instance
+        .collection('tickets')
+        .add(widget.ticketData);
+
+    await ref.update({'ticketId': ref.id});
   }
   //===============================================================================================
 

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'sucess_screen.dart';
 class CardScreen extends StatefulWidget {
-  CardScreen({super.key});
+  final Map<String, dynamic> ticketData;
+  CardScreen({super.key, required this.ticketData});
 
   @override
   State<CardScreen> createState() => _CardScreen();
 }
 
 class _CardScreen extends  State<CardScreen>{
+
   bool obsecure = true;
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -320,7 +322,7 @@ class _CardScreen extends  State<CardScreen>{
 
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (_) => SucessScreen()),
+                    MaterialPageRoute(builder: (_) => SucessScreen(ticketData: widget.ticketData)),
                   );
 
                 },

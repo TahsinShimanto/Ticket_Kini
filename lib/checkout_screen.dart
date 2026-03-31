@@ -532,11 +532,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                       'bookedAt': FieldValue.serverTimestamp(),
                     };
 
-                    DocumentReference ref = await FirebaseFirestore.instance
-                        .collection('tickets')
-                        .add(ticketData);
 
-                    await ref.update({'ticketId': ref.id});
 
 
                    // FirebaseFirestore.instance.collection('tickets').add(ticketData);  //push
@@ -548,21 +544,21 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                       case "bKash":
                         nextScreen = BkashScreen(
                           //amount: widget.totalAmount + 20,
-                          //ticketData: ticketData,
+                            ticketData: ticketData,
                         );
                         break;
 
                       case "Nagad":
                         nextScreen = NagadScreen(
                          // amount: widget.totalAmount + 20,
-                          //ticketData: ticketData,
+                          ticketData: ticketData,
                         );
                         break;
 
                       case "Visa/Mastercard":
                         nextScreen = CardScreen(
                           //amount: widget.totalAmount + 20,
-                          //ticketData: ticketData,
+                          ticketData: ticketData,
                         );
                         break;
 

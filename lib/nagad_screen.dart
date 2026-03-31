@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'sucess_screen.dart';
 class NagadScreen extends StatefulWidget {
-  NagadScreen({super.key});
+  final Map<String, dynamic> ticketData;
+  NagadScreen({super.key, required this.ticketData});
 
   @override
   State<NagadScreen> createState() => _NagadScreen();
@@ -168,7 +169,7 @@ class _NagadScreen extends State<NagadScreen> {
 
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (_) => SucessScreen()),
+                    MaterialPageRoute(builder: (_) => SucessScreen(ticketData: widget.ticketData)),
                   );
 
                 },

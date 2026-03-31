@@ -88,7 +88,7 @@ class _MyTicketsTabState extends State<MyTicketsTab> {
 
           final tickets = snapshot.data!.docs.toList()
 
-//======================for sorting date of myticket===================================================================
+//======================for sorting date of ticket===================================================================
             ..sort((a, b) {
               final dateFormat = DateFormat('dd-MM-yyyy');
               final aData = a.data() as Map<String, dynamic>;
@@ -102,6 +102,19 @@ class _MyTicketsTabState extends State<MyTicketsTab> {
               }
             });
 //===================================================================================
+          if (tickets.isEmpty) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.confirmation_number_outlined, size: 80,
+                      color: Colors.grey),
+                  Text("No tickets booked yet",
+                      style: TextStyle(fontSize: 18, color: Colors.grey)),
+                ],
+              ),
+            );
+          }
           return  ListView.builder(
 
               itemCount: tickets.length,

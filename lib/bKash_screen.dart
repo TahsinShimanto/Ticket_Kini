@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'sucess_screen.dart';
-
+import 'checkout_screen.dart';
 class BkashScreen extends StatefulWidget {
-  BkashScreen({super.key});
+  final Map<String, dynamic> ticketData;
+  BkashScreen({super.key, required this.ticketData});
 
   @override
   State<BkashScreen> createState() => _BkashScreen();
@@ -171,7 +172,7 @@ class _BkashScreen extends State<BkashScreen> {
 
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (_) => SucessScreen()),
+                    MaterialPageRoute(builder: (_) => SucessScreen(ticketData: widget.ticketData)),
                   );
 
                 },
