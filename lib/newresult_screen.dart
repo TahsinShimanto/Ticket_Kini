@@ -44,12 +44,12 @@ class TransportListScreen extends StatelessWidget {
   List get activeCoachList {
     if (type == "Bus") {
       return [
-        {"name": "NON_AC", "fare": 680, "availableSeats": 40},
-        {"name": "AC_ECONOMY", "fare": 1200, "availableSeats": 30},
-        {"name": "AC_BUSINESS", "fare": 1500, "availableSeats": 24},
+        {"name": "NON_AC", "fare": 680, "availableSeats": 21},
+        {"name": "AC_ECONOMY", "fare": 1200, "availableSeats": 10},
+        {"name": "AC_BUSINESS", "fare": 1500, "availableSeats": 8},
         {"name": "SLEEPER", "fare": 2200, "availableSeats": 18},
         {"name": "HYUNDAI_UNI", "fare": 2000, "availableSeats": 22},
-        {"name": "DECKER_AC", "fare": 1300, "availableSeats": 50},
+        {"name": "DECKER_AC", "fare": 1300, "availableSeats": 15},
       ];
     } else {
       return coachlist;
@@ -75,10 +75,10 @@ class TransportListScreen extends StatelessWidget {
     {"name": "SNIGDHA", "fare": 850, "availableSeats": 20},
     {"name": "AC_S", "fare": 800, "availableSeats": 24},
     {"name": "AC_B", "fare": 1200, "availableSeats": 12},
-    {"name": "S_CHAIR", "fare": 500, "availableSeats": 40},
-    {"name": "SHOVON", "fare": 350, "availableSeats": 60},
-    {"name": "SHULOV", "fare": 250, "availableSeats": 70},
-    {"name": "F_SEAT", "fare": 700, "availableSeats": 24},
+    {"name": "S_CHAIR", "fare": 500, "availableSeats": 14},
+    {"name": "SHOVON", "fare": 350, "availableSeats": 6},
+    {"name": "SHULOV", "fare": 250, "availableSeats": 7},
+    {"name": "F_SEAT", "fare": 700, "availableSeats": 4},
     {"name": "F_BERTH", "fare": 1000, "availableSeats": 12},
   ];
 
