@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 4),(){
+    Timer(const Duration(seconds: 2),(){
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => LoginScreen()));
     });
@@ -31,17 +31,18 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            Image.asset( 'assets/logo.png', width: 450, height: 250, ),
+           // Image.asset( 'assets/logo.png', width: 450, height: 250, ),
+            Image.asset( 'assets/Ticket Kinilogo.png', width: 350, height: 200, ),
 
-            Text(
-              'Ticket Kini',
-              style: TextStyle(
-                fontSize: 30,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 2,
-              ),
-            )
+            // Text(
+            //   'Ticket Kini',
+            //   style: TextStyle(
+            //     fontSize: 30,
+            //     color: Colors.white,
+            //     fontWeight: FontWeight.bold,
+            //     letterSpacing: 2,
+            //   ),
+            // )2
 
           ],
         ),

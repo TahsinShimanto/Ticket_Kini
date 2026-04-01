@@ -35,10 +35,7 @@ class _HomePageState extends State<HomePage> {
           userName = doc['name'];
         });
       }
-    else
-      {
-        userName = "User";
-      }
+    //else{ userName = "User";}
   }
 
   @override
