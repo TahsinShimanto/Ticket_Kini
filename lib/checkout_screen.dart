@@ -355,7 +355,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                       ],
 
                     ),
-                    const SizedBox(width: 250),
+                    Spacer(),
 
                     if (selectedMethod == "bKash")
                       Icon(Icons.check_circle, color: Colors.green),
