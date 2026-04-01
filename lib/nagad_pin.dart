@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:ticket_kini/nagad_verfication.dart';
 import 'sucess_screen.dart';
-import 'bKash_verification.dart';
-class NagadScreen extends StatefulWidget {
+import 'checkout_screen.dart';
+
+class NagadPin extends StatefulWidget {
   final Map<String, dynamic> ticketData;
-  NagadScreen({super.key, required this.ticketData});
+  NagadPin({super.key, required this.ticketData});
 
   @override
-  State<NagadScreen> createState() => _NagadScreen();
+  State<NagadPin> createState() => _NagadPin();
 }
 
-class _NagadScreen extends State<NagadScreen> {
+class _NagadPin extends State<NagadPin> {
   bool obsecure = true;
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -24,12 +24,12 @@ class _NagadScreen extends State<NagadScreen> {
           [
             Image.asset(
               "assets/nagad.png",
-              height: 155,
+              height: 150,
               width: double.infinity,
             ),
 
             Container(
-              height: 20,
+              height: 10,
               width: double.infinity,
               decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
@@ -72,7 +72,7 @@ class _NagadScreen extends State<NagadScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Your Nagad Account number ",
+                        "Enter PIN of your Nagad Account Number ",
                         style: TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.bold,
@@ -86,23 +86,27 @@ class _NagadScreen extends State<NagadScreen> {
                   SizedBox(
                     width: double.infinity,
                     child: TextFormField(
-                      controller: phoneController,
-                      obscureText: false,
+                      controller: passwordController,
+                      obscureText: true,
+                      keyboardType: TextInputType.number,
+                      maxLength: 5,
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         filled: true,
                         fillColor: Colors.white,
-                        hintText: 'e.g 01XXXXXXXXX',
+                        hintText: 'Enter PIN',
                         hintStyle: TextStyle(color: Colors.grey),
                       ),
-                      validator: (val) {
-                        if (val == null ||
-                            val.isEmpty ||
-                            int.tryParse(val) == null) {
-                          return 'Enter a valid Number';
+                      validator: (val){
+                        if(val==null || val.isEmpty ||val.length<6)
+                        {
+                          return 'Enter a valid password';
                         }
-                        return null;
+                        else
+                        {
+                          return null;
+                        }
                       },
                     ),
                   ),
@@ -135,7 +139,7 @@ class _NagadScreen extends State<NagadScreen> {
 
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (_) =>NagadVerfication(ticketData: widget.ticketData)),
+                        MaterialPageRoute(builder: (_) =>SucessScreen(ticketData: widget.ticketData)),
                       );
 
                     },

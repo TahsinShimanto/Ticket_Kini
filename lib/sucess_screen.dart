@@ -15,7 +15,7 @@ class _SucessScreenState extends State<SucessScreen>{
   void initState() {
     super.initState();
         _save();
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 1), () {
       if (mounted) {
         Navigator.pushAndRemoveUntil(
           context,
@@ -39,15 +39,6 @@ class _SucessScreenState extends State<SucessScreen>{
 
   Widget build(BuildContext){
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Checkout",
-          style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.white,),
-        ),
-        backgroundColor: Colors.teal,
-        centerTitle: true,
-      ),
-
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

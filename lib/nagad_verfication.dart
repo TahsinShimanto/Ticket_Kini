@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:ticket_kini/nagad_verfication.dart';
 import 'sucess_screen.dart';
-import 'bKash_verification.dart';
-class NagadScreen extends StatefulWidget {
+import 'checkout_screen.dart';
+import 'bKash_pin.dart';
+import 'nagad_screen.dart';
+import 'nagad_pin.dart';
+class NagadVerfication extends StatefulWidget {
   final Map<String, dynamic> ticketData;
-  NagadScreen({super.key, required this.ticketData});
+  NagadVerfication({super.key, required this.ticketData});
 
   @override
-  State<NagadScreen> createState() => _NagadScreen();
+  State<NagadVerfication> createState() => _NagadVerfication();
 }
 
-class _NagadScreen extends State<NagadScreen> {
+class _NagadVerfication extends State<NagadVerfication> {
   bool obsecure = true;
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -24,12 +26,12 @@ class _NagadScreen extends State<NagadScreen> {
           [
             Image.asset(
               "assets/nagad.png",
-              height: 155,
+              height: 150,
               width: double.infinity,
             ),
 
             Container(
-              height: 20,
+              height: 10,
               width: double.infinity,
               decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
@@ -72,7 +74,7 @@ class _NagadScreen extends State<NagadScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Your Nagad Account number ",
+                        "Enter verification code ",
                         style: TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.bold,
@@ -88,19 +90,20 @@ class _NagadScreen extends State<NagadScreen> {
                     child: TextFormField(
                       controller: phoneController,
                       obscureText: false,
+                      keyboardType: TextInputType.number,
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         filled: true,
                         fillColor: Colors.white,
-                        hintText: 'e.g 01XXXXXXXXX',
+                        hintText: 'Nagad Verification Code',
                         hintStyle: TextStyle(color: Colors.grey),
                       ),
                       validator: (val) {
                         if (val == null ||
                             val.isEmpty ||
                             int.tryParse(val) == null) {
-                          return 'Enter a valid Number';
+                          return 'Enter a valid Code';
                         }
                         return null;
                       },
@@ -135,7 +138,7 @@ class _NagadScreen extends State<NagadScreen> {
 
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (_) =>NagadVerfication(ticketData: widget.ticketData)),
+                        MaterialPageRoute(builder: (_) =>NagadPin(ticketData: widget.ticketData)),
                       );
 
                     },

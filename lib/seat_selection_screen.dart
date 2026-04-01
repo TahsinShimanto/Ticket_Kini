@@ -102,6 +102,17 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
 
                 const SizedBox(width: 10),
                 Text("Selected"),
+                const SizedBox(width: 20),
+                Container(
+                  height: 10,
+                  width: 10,
+                  color: Colors.blueGrey,
+                ),
+
+                const SizedBox(width: 10),
+                Text("Booked"),
+
+
 
               ],
             ),
@@ -344,7 +355,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
         margin: EdgeInsets.all(5),
         decoration: BoxDecoration(
           color:seatBooked[index]
-               ? Colors.green
+               ? Colors.blueGrey
               : seatSelected[index]
               ? Color(0xFF00897B)
               :Colors.grey.shade300,

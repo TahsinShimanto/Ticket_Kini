@@ -47,276 +47,114 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
         centerTitle: true,
       ),
 
-      body: Column(
-        children: [
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                child: Text(
-                  "1",
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Color(0xFF00897B),
-
-                ),
-                padding: EdgeInsets.all(10.0),
-              ),
-
-              Container(
-                height: 2,
-                width: 50,
-                decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Color(0xFF00897B),
-                ),
-
-              ),
-              Container(
-                child: Text(
-                  "2",
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Color(0xFF00897B),
-
-                ),
-                padding: EdgeInsets.all(10.0),
-
-              ),
-              Container(
-                height: 2,
-                width: 50,
-                decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Colors.grey,
-                ),
-
-              ),
-              Container(
-                child: Text(
-                  "3",
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.grey,
-
-                ),
-                padding: EdgeInsets.all(10.0),
-
-              ),
-
-            ],
-          ),
-          const SizedBox(height: 2),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Seats",
-                style: TextStyle(
-                  color: Color(0xFF00897B),
-                ),
-              ),
-              const SizedBox(width: 30),
-              Text(
-                "Payment",
-                style: TextStyle(
-                  color: Color(0xFF00897B),
-                ),
-              ),
-              const SizedBox(width: 30),
-              Text(
-                "Ticket",
-                style: TextStyle(
-                  color: Color(0xFF00897B),
-                ),
-              ),
-
-
-            ],
-          ),
-          const SizedBox(height: 10),
-          Container(
-            padding: EdgeInsets.all(16),
-            margin: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(8),
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 10,
-                  color: Colors.black12,
-                )
-              ],
-            ),
-            child: Column(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Transport",
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
+                Container(
+                  child: Text(
+                    "1",
+                    style: TextStyle(
+                      color: Colors.white,
                     ),
-                    Text(
-                      widget.transportName,
-                      style: const TextStyle(fontSize: 16),
-                    )
-                  ],
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Type",
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                    Text(
-                      widget.transportType,
-                      style: const TextStyle(fontSize: 16),
-                    )
-                  ],
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Seats",
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                    Text(
-                      widget.selectedSeats.join(", "),
-                      style: const TextStyle(fontSize: 16),
-                    )
-                  ],
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Journey Date",
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                    Text(
-                      widget.date,
-                      style: const TextStyle(fontSize: 16),
-                    )
-                  ],
-                ),
-                const SizedBox(height: 10),
-                Row(
-                  children: [
-                    Container(
-                      height: 3,
-                      width: 359,
-                      color: Colors.grey,
-                    )
-                  ],
-                ),
-                const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Base Fare",
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                    Text(
-                      "৳${widget.totalAmount}",
-                      style: const TextStyle(fontSize: 16),
-                    )
-                  ],
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Service",
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                    Text(
-                      "৳20.00",
-                      style: const TextStyle(fontSize: 16),
-                    )
-                  ],
+                  ),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color(0xFF00897B),
+
+                  ),
+                  padding: EdgeInsets.all(10.0),
                 ),
 
-                const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Total Amount",
-                      style: const TextStyle(fontSize: 20),
-                    ),
-                    Text(
-                      "৳${widget.totalAmount+20}",
-                      style: const TextStyle(fontSize: 30),
-                    )
-                  ],
+                Container(
+                  height: 2,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color: Color(0xFF00897B),
+                  ),
+
                 ),
+                Container(
+                  child: Text(
+                    "2",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color(0xFF00897B),
+
+                  ),
+                  padding: EdgeInsets.all(10.0),
+
+                ),
+                Container(
+                  height: 2,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color: Colors.grey,
+                  ),
+
+                ),
+                Container(
+                  child: Text(
+                    "3",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.grey,
+
+                  ),
+                  padding: EdgeInsets.all(10.0),
+
+                ),
+
               ],
             ),
+            const SizedBox(height: 2),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Seats",
+                  style: TextStyle(
+                    color: Color(0xFF00897B),
+                  ),
+                ),
+                const SizedBox(width: 30),
+                Text(
+                  "Payment",
+                  style: TextStyle(
+                    color: Color(0xFF00897B),
+                  ),
+                ),
+                const SizedBox(width: 30),
+                Text(
+                  "Ticket",
+                  style: TextStyle(
+                    color: Color(0xFF00897B),
+                  ),
+                ),
 
-          ),
-          const SizedBox(height: 10),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const SizedBox(width: 10),
-              Text(
-                "Selected Payment Method",
-                style: TextStyle(fontWeight: FontWeight.w600),
-              )
-            ],
-          ),
-          const SizedBox(height: 10),
-          GestureDetector(
-            onTap: (){
-              setState(() {
-                selectedMethod="bKash";
-              });
-            },
-
-            child: Container(
+              ],
+            ),
+            const SizedBox(height: 10),
+            Container(
               padding: EdgeInsets.all(16),
               margin: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(
-                  color: selectedMethod == "bKash" ? Colors.green : Colors.transparent,
-                  width: 2,
-                ),
                 boxShadow: [
                   BoxShadow(
                     blurRadius: 10,
@@ -324,62 +162,160 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                   )
                 ],
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+              child: Column(
                 children: [
-                  Icon(
-                    Icons.account_balance_wallet,
-                    color: Colors.pinkAccent,
-
-                  ),
-                  const SizedBox(width: 5),
-                  Column(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "bKash",
+                        "Transport",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold
+                          color: Colors.grey,
                         ),
                       ),
-
-                      const SizedBox(height: 2),
                       Text(
-                        "Mobile wallet",
+                        widget.transportName,
+                        style: const TextStyle(fontSize: 16),
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Type",
                         style: TextStyle(
-                          fontSize: 8,
+                          color: Colors.grey,
                         ),
                       ),
-
+                      Text(
+                        widget.transportType,
+                        style: const TextStyle(fontSize: 16),
+                      )
                     ],
-
                   ),
-                  const SizedBox(width: 250),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Seats",
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                      Text(
+                        widget.selectedSeats.join(", "),
+                        style: const TextStyle(fontSize: 16),
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Journey Date",
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                      Text(
+                        widget.date,
+                        style: const TextStyle(fontSize: 16),
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      Container(
+                        height: 3,
+                        width: 359,
+                        color: Colors.grey,
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Base Fare",
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                      Text(
+                        "৳${widget.totalAmount}",
+                        style: const TextStyle(fontSize: 16),
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Service",
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                      Text(
+                        "৳20.00",
+                        style: const TextStyle(fontSize: 16),
+                      )
+                    ],
+                  ),
 
-                  if (selectedMethod == "bKash")
-                    Icon(Icons.check_circle, color: Colors.green),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Total Amount",
+                        style: const TextStyle(fontSize: 20),
+                      ),
+                      Text(
+                        "৳${widget.totalAmount+20}",
+                        style: const TextStyle(fontSize: 30),
+                      )
+                    ],
+                  ),
                 ],
-
-
               ),
+
             ),
-          ),
+            const SizedBox(height: 10),
 
-          GestureDetector(
-            onTap: (){
-              setState(() {
-                selectedMethod="Nagad";
-              });
-            },
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const SizedBox(width: 10),
+                Text(
+                  "Selected Payment Method",
+                  style: TextStyle(fontWeight: FontWeight.w600),
+                )
+              ],
+            ),
+            const SizedBox(height: 10),
+            GestureDetector(
+              onTap: (){
+                setState(() {
+                  selectedMethod="bKash";
+                });
+              },
 
-            child:Container(
+              child: Container(
                 padding: EdgeInsets.all(16),
-                margin: EdgeInsets.all(8),
+                margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(
-                    color: selectedMethod == "Nagad" ? Colors.green : Colors.transparent,
+                    color: selectedMethod == "bKash" ? Colors.green : Colors.transparent,
                     width: 2,
                   ),
                   boxShadow: [
@@ -394,7 +330,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                   children: [
                     Icon(
                       Icons.account_balance_wallet,
-                      color: Colors.amberAccent,
+                      color: Colors.pinkAccent,
 
                     ),
                     const SizedBox(width: 5),
@@ -402,14 +338,142 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Nagad",
+                          "bKash",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold
+                          ),
+                        ),
+
+                        const SizedBox(height: 2),
+                        Text(
+                          "Mobile wallet",
+                          style: TextStyle(
+                            fontSize: 8,
+                          ),
+                        ),
+
+                      ],
+
+                    ),
+                    const SizedBox(width: 250),
+
+                    if (selectedMethod == "bKash")
+                      Icon(Icons.check_circle, color: Colors.green),
+                  ],
+
+
+                ),
+              ),
+            ),
+
+            GestureDetector(
+              onTap: (){
+                setState(() {
+                  selectedMethod="Nagad";
+                });
+              },
+
+              child:Container(
+                  padding: EdgeInsets.all(16),
+                  margin: EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      color: selectedMethod == "Nagad" ? Colors.green : Colors.transparent,
+                      width: 2,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 10,
+                        color: Colors.black12,
+                      )
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.account_balance_wallet,
+                        color: Colors.amberAccent,
+
+                      ),
+                      const SizedBox(width: 5),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Nagad",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold
+                            ),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            "Mobile wallet",
+                            style: TextStyle(
+                              fontSize: 7,
+                            ),
+                          )
+
+                        ],
+
+
+                      ),
+                      const SizedBox(width: 250),
+
+                      if (selectedMethod == "Nagad")
+                        Icon(Icons.check_circle, color: Colors.green),
+
+                    ],
+                  )
+              ),
+            ),
+            GestureDetector(
+              onTap: (){
+                setState(() {
+                  selectedMethod="Visa/Mastercard";
+                });
+              },
+
+              child:Container(
+                padding: EdgeInsets.all(16),
+                margin: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(
+                    color: selectedMethod == "Visa/Mastercard" ? Colors.green : Colors.transparent,
+                    width: 2,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 10,
+                      color: Colors.black12,
+                    )
+                  ],
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.credit_card,
+                      color: Colors.blue,
+
+                    ),
+                    const SizedBox(width: 5),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Visa/Mastercard",
                           style: TextStyle(
                               fontWeight: FontWeight.bold
                           ),
                         ),
                         const SizedBox(height: 2),
                         Text(
-                          "Mobile wallet",
+                          "debit or creditcard                    ",
                           style: TextStyle(
                             fontSize: 7,
                           ),
@@ -419,173 +483,111 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
 
 
                     ),
-                    const SizedBox(width: 250),
+                    const SizedBox(width: 180),
 
-                    if (selectedMethod == "Nagad")
+                    if (selectedMethod == "Visa/Mastercard")
                       Icon(Icons.check_circle, color: Colors.green),
-
                   ],
-                )
-            ),
-          ),
-          GestureDetector(
-            onTap: (){
-              setState(() {
-                selectedMethod="Visa/Mastercard";
-              });
-            },
-
-            child:Container(
-              padding: EdgeInsets.all(16),
-              margin: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(
-                  color: selectedMethod == "Visa/Mastercard" ? Colors.green : Colors.transparent,
-                  width: 2,
                 ),
+              ),
+            ),
+
+            const SizedBox(height: 15),
+            Container(
+              padding: const EdgeInsets.all(25),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: Colors.white,
                 boxShadow: [
                   BoxShadow(
-                    blurRadius: 10,
+                    blurRadius: 20,
                     color: Colors.black12,
                   )
                 ],
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Icon(
-                    Icons.credit_card,
-                    color: Colors.blue,
-
-                  ),
-                  const SizedBox(width: 5),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Visa/Mastercard",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold
-                        ),
-                      ),
-                      const SizedBox(height: 2),
-                      Text(
-                        "debit or creditcard                    ",
-                        style: TextStyle(
-                          fontSize: 7,
-                        ),
-                      )
-
-                    ],
-
-
-                  ),
-                  const SizedBox(width: 180),
-
-                  if (selectedMethod == "Visa/Mastercard")
-                    Icon(Icons.check_circle, color: Colors.green),
-                ],
-              ),
-            ),
-          ),
-
-          const SizedBox(height: 15),
-          Container(
-            padding: const EdgeInsets.all(25),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 20,
-                  color: Colors.black12,
-                )
-              ],
-            ),
-            child: SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF00897B),
-                    foregroundColor: Colors.white,
-                  ),
-                  onPressed: () async {
+              child: SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF00897B),
+                      foregroundColor: Colors.white,
+                    ),
+                    onPressed: () async {
 //=================================firebase========================S===========================================
 
-                    String uid = FirebaseAuth.instance.currentUser?.uid ?? "unknown";  //get uid
+                      String uid = FirebaseAuth.instance.currentUser?.uid ?? "unknown";  //get uid
 
 
-                    Map<String, dynamic> ticketData = {
-                      'userId': uid,
-                      'transportName': widget.transportName,
-                      'transportType': widget.transportType,
-                      'coachName': widget.coachName,
-                      'from': widget.from,
-                      'to': widget.to,
-                      'date': widget.date,
-                      'departureTime': widget.departureTime,
-                      'selectedSeats': widget.selectedSeats,
-                      'totalAmount': widget.totalAmount + 20,
-                      'paymentMethod': selectedMethod,
-                      'bookedAt': FieldValue.serverTimestamp(),
-                    };
+                      Map<String, dynamic> ticketData = {
+                        'userId': uid,
+                        'transportName': widget.transportName,
+                        'transportType': widget.transportType,
+                        'coachName': widget.coachName,
+                        'from': widget.from,
+                        'to': widget.to,
+                        'date': widget.date,
+                        'departureTime': widget.departureTime,
+                        'selectedSeats': widget.selectedSeats,
+                        'totalAmount': widget.totalAmount + 20,
+                        'paymentMethod': selectedMethod,
+                        'bookedAt': FieldValue.serverTimestamp(),
+                      };
 
 
 
 
-                   // FirebaseFirestore.instance.collection('tickets').add(ticketData);  //push
+                      // FirebaseFirestore.instance.collection('tickets').add(ticketData);  //push
 
 //================================================================================================================
-                    Widget nextScreen;
+                      Widget nextScreen;
 
-                    switch (selectedMethod) {
-                      case "bKash":
-                        nextScreen = BkashScreen(
-                          //amount: widget.totalAmount + 20,
+                      switch (selectedMethod) {
+                        case "bKash":
+                          nextScreen = BkashScreen(
+                            //amount: widget.totalAmount + 20,
                             ticketData: ticketData,
-                        );
-                        break;
+                          );
+                          break;
 
-                      case "Nagad":
-                        nextScreen = NagadScreen(
-                         // amount: widget.totalAmount + 20,
-                          ticketData: ticketData,
-                        );
-                        break;
+                        case "Nagad":
+                          nextScreen = NagadScreen(
+                            // amount: widget.totalAmount + 20,
+                            ticketData: ticketData,
+                          );
+                          break;
 
-                      case "Visa/Mastercard":
-                        nextScreen = CardScreen(
-                          //amount: widget.totalAmount + 20,
-                          ticketData: ticketData,
-                        );
-                        break;
+                        case "Visa/Mastercard":
+                          nextScreen = CardScreen(
+                            //amount: widget.totalAmount + 20,
+                            ticketData: ticketData,
+                          );
+                          break;
 
-                      default:
-                        return;
-                    }
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder:(_)=>
-                            nextScreen,
+                        default:
+                          return;
+                      }
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:(_)=>
+                          nextScreen,
 
-                      ),
-                    );
-                  }, child: Text(
-                "Confirm & Pay",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  letterSpacing: 1.2,
-                ),
-              )),
+                        ),
+                      );
+                    }, child: Text(
+                  "Confirm & Pay",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    letterSpacing: 1.2,
+                  ),
+                )),
+              ),
             ),
-          ),
 
-        ],
+          ],
+        ),
       ),
 
     );

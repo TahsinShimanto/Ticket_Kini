@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
 import 'sucess_screen.dart';
 class CardScreen extends StatefulWidget {
+
   final Map<String, dynamic> ticketData;
-  CardScreen({super.key, required this.ticketData});
+  CardScreen({super.key,
+    required this.ticketData,
+
+  });
 
   @override
   State<CardScreen> createState() => _CardScreen();
 }
 
 class _CardScreen extends  State<CardScreen>{
+  final TextEditingController cardNumberController = TextEditingController();
+  final TextEditingController cardHolderController = TextEditingController();
+  final TextEditingController expiryController = TextEditingController();
+  final TextEditingController cvvController = TextEditingController();
 
   bool obsecure = true;
-  final TextEditingController phoneController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
   Widget build(BuildContext context){
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
 
         title: Text("Checkout"),
@@ -62,11 +69,10 @@ class _CardScreen extends  State<CardScreen>{
                                       Icons.credit_card,color: Colors.grey,
                                     ),
                                     SizedBox(
-                                      width: 36,   // total width (small like your UI)
-                                      height: 24,  // height
+                                      width: 36,
+                                      height: 24,
                                       child: Stack(
                                         children: [
-                                          // Red circle
                                           Positioned(
                                             left: 0,
                                             child: Container(
@@ -79,9 +85,9 @@ class _CardScreen extends  State<CardScreen>{
                                             ),
                                           ),
 
-                                          // Orange circle
+
                                           Positioned(
-                                            left: 12, // overlap tuned for small size
+                                            left: 12,
                                             child: Container(
                                               width: 20,
                                               height: 20,
@@ -130,7 +136,7 @@ class _CardScreen extends  State<CardScreen>{
                           SizedBox(
                             width: double.infinity,
                             child: TextFormField(
-                              controller: phoneController,
+                              controller: cardNumberController,
                               obscureText: false,
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(),
@@ -170,7 +176,7 @@ class _CardScreen extends  State<CardScreen>{
                           SizedBox(
                             width: double.infinity,
                             child: TextFormField(
-                              controller: phoneController,
+                              controller: cardHolderController,
                               obscureText: false,
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(),
@@ -203,7 +209,7 @@ class _CardScreen extends  State<CardScreen>{
                           const SizedBox(height: 5),
                           Row(
                             children: [
-                              // Expiry
+
                               Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -211,7 +217,7 @@ class _CardScreen extends  State<CardScreen>{
                                     Text("Expiry", style: TextStyle(color: Colors.grey)),
                                     SizedBox(height: 5),
                                     TextFormField(
-                                      controller: phoneController,
+                                      controller: expiryController,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         border: OutlineInputBorder(),
@@ -250,7 +256,7 @@ class _CardScreen extends  State<CardScreen>{
                                     Text("CVV", style: TextStyle(color: Colors.grey)),
                                     SizedBox(height: 5),
                                     TextFormField(
-                                      controller: passwordController,
+                                      controller: cvvController,
                                       obscureText: obsecure,
                                       decoration: InputDecoration(
                                         suffixIcon: IconButton(
@@ -327,7 +333,7 @@ class _CardScreen extends  State<CardScreen>{
 
                 },
                 child: Text(
-                  "Pay 120 via card",
+                  "Pay via card",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
