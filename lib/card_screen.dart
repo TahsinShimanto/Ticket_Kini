@@ -22,13 +22,7 @@ class _CardScreen extends  State<CardScreen>{
   Widget build(BuildContext context){
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
 
-        title: Text("Checkout"),
-        centerTitle: true,
-        backgroundColor: Colors.indigoAccent,
-        foregroundColor: Colors.white,
-      ),
       body: Column(
         children: [
           Expanded(
