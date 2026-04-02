@@ -118,9 +118,9 @@ class _SignUpPageState extends State<SignUpPage> {
                             if(double.tryParse(val) == null){
                               return 'Enter a valid Number';
                             }
-                            if(!val.startsWith('01')){
-                              return 'Enter a valid Number';
-                            }
+                            // if(!val.startsWith('01')){
+                            //   return 'Enter a valid Number';
+                            // }
                             return null;
                           },
             
