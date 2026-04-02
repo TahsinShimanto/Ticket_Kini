@@ -41,14 +41,14 @@ class _MyAccountState extends State<MyAccount> {
        });
      }
    //bypass
-   /*else
+   else
      {
        setState(() {
          userName = 'Guest user';
          userPhone = '0167676767';
          userNID = '67676767';
        });
-     }*/
+     }
 
   }
 

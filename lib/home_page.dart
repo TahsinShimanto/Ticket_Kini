@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(Icons.directions_bus,size: 70,color: Color(0xFFE65100),),
+                      Icon(Icons.directions_bus,size: 70,color: Color(0xFF00897B),),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -130,7 +130,7 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(Icons.directions_train,size: 70,color: Color(0xFF1565C0),),
+                      Icon(Icons.directions_train,size: 70,color: Color(0xFF00897B),),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
