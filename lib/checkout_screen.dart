@@ -45,6 +45,10 @@ class _CheckoutScreenState extends State<CheckoutScreen>{
         ),
         backgroundColor: Colors.teal,
         centerTitle: true,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(Icons.arrow_back,color: Colors.white,),
+        ),
       ),
 
       body: SingleChildScrollView(

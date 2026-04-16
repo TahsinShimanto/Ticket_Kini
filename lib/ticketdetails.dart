@@ -22,6 +22,10 @@ class TicketDetails extends StatelessWidget {
         ),
         backgroundColor: Colors.teal,
         centerTitle: true,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(Icons.arrow_back,color: Colors.white,),
+        ),
       ),
       body: Center(
         child: Container(
@@ -198,6 +202,13 @@ class TicketDetails extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children:[ ElevatedButton(onPressed: (){
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        backgroundColor: Colors.white,
+                        duration: Duration(seconds: 1),
+                        content: Text("Ticket is downloaded",style: TextStyle(fontSize: 18,color: Color(0xFF00897B))),
+                      )
+                  );
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const HomePage()),

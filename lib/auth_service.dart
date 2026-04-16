@@ -28,6 +28,7 @@ Future<String?> signup(String name, String phone,String nid,String password) asy
   }
 
   catch(e){
+    print("Error: $e");
     return e.toString();
   }
 }
@@ -44,6 +45,7 @@ Future<String?> signup(String name, String phone,String nid,String password) asy
 
       return null;
     } catch (e) {
+      print("Error: $e");
       return e.toString();
     }
   }

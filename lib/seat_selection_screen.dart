@@ -69,6 +69,10 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
           ),
           backgroundColor: Colors.teal,
           centerTitle: true,
+          leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(Icons.arrow_back,color: Colors.white,),
+          ),
         ),
 
 
@@ -82,6 +86,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
                   height:10,
                   width: 10,
                   decoration: BoxDecoration(
+                    color: Colors.grey,
                       shape: BoxShape.rectangle,
                       border:Border.all(
                           color: Colors.black
@@ -91,7 +96,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
 
                 ),
                 const SizedBox(width: 5),
-                Text("Avaiable"),
+                Text("Available"),
 
                 const SizedBox(width: 20),
                 Container(
@@ -106,7 +111,15 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
                 Container(
                   height: 10,
                   width: 10,
-                  color: Colors.blueGrey,
+
+                  decoration: BoxDecoration(
+                      color: Colors.grey.shade200,
+                      shape: BoxShape.rectangle,
+                      border:Border.all(
+                          color: Colors.black26
+                      )
+
+                  ),
                 ),
 
                 const SizedBox(width: 10),
@@ -247,6 +260,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
             const SizedBox(height: 30),
 
             Container(
+              height: 130,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -355,16 +369,16 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen>{
         margin: EdgeInsets.all(5),
         decoration: BoxDecoration(
           color:seatBooked[index]
-               ? Colors.blueGrey
+               ? Colors.grey.shade100
               : seatSelected[index]
               ? Color(0xFF00897B)
               :Colors.grey.shade300,
-          border: Border.all(color: Colors.black),
+          border: Border.all(color: seatBooked[index] ? Colors.black26 : Colors.black),
           borderRadius: BorderRadius.circular(8),
         ),
-        child: const Icon(
+        child:  Icon(
           Icons.event_seat,
-          color: Colors.black54,
+          color: seatBooked[index] ? Colors.black26 : Colors.black54,
         ),
       ),
     );

@@ -27,8 +27,8 @@ class _BkashScreen extends State<BkashScreen> {
             children:
             [
               Image.asset(
-                "assets/bkash.png",
-                height: 150,
+                "assets/bkash2.png",
+                //height: 150,
                 width: double.infinity,
               ),
 
@@ -129,7 +129,7 @@ class _BkashScreen extends State<BkashScreen> {
                         ),
 
                       ),
-                      child: Text("CLOSE"),
+                      child: Text("BACK"),
                     ),
                   ),
                   Expanded(

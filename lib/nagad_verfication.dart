@@ -26,11 +26,20 @@ class _NagadVerfication extends State<NagadVerfication> {
             mainAxisAlignment: MainAxisAlignment.center,
             children:
             [
-              Image.asset(
-                "assets/nagad.png",
-                height: 150,
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 5),
                 width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                  border: Border.all(color: Colors.deepOrange),
+                ),
+                child:Image.asset(
+                  "assets/nagad2.png",
+                  height: 80,
+                  width: double.infinity,
+                ) ,
               ),
+              SizedBox(height: 5,),
 
               Container(
                 height: 10,
@@ -130,7 +139,7 @@ class _NagadVerfication extends State<NagadVerfication> {
                         ),
 
                       ),
-                      child: Text("CLOSE"),
+                      child: Text("BACK"),
                     ),
                   ),
                   Expanded(

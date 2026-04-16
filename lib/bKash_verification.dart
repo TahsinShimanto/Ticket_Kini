@@ -25,8 +25,8 @@ class _BkashVerification extends State<BkashVerification> {
             children:
             [
               Image.asset(
-                "assets/bkash.png",
-                height: 150,
+                "assets/bkash2.png",
+                //height: 150,
                 width: double.infinity,
               ),
 
@@ -128,7 +128,7 @@ class _BkashVerification extends State<BkashVerification> {
                         ),
 
                       ),
-                      child: Text("CLOSE"),
+                      child: Text("BACK"),
                     ),
                   ),
                   Expanded(

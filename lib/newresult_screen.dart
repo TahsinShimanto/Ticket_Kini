@@ -92,6 +92,10 @@ class TransportListScreen extends StatelessWidget {
         ),
         backgroundColor: Colors.teal,
         centerTitle: true,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(Icons.arrow_back,color: Colors.white,),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
