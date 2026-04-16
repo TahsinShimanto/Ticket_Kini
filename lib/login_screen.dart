@@ -170,12 +170,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     )
                 ),
                 //bypass
-                GestureDetector(
+                /*GestureDetector(
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
                   },
                   child: Text('Bypass',style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold,fontSize: 25),),
-                )
+                )*/
               ],
             ),
           )
