@@ -22,7 +22,10 @@ class _CardScreen extends  State<CardScreen>{
   Widget build(BuildContext context){
     return Scaffold(
       resizeToAvoidBottomInset: false,
-
+      appBar: AppBar(
+        toolbarHeight: 30,
+        automaticallyImplyLeading: true,
+      ),
       body: Column(
         children: [
           Expanded(
@@ -34,7 +37,7 @@ class _CardScreen extends  State<CardScreen>{
                     const SizedBox(height: 150),
                     Container(
                       padding: EdgeInsets.all(16),
-                      margin: EdgeInsets.all(10),
+                      margin: EdgeInsets.all(2),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(8),
@@ -122,11 +125,10 @@ class _CardScreen extends  State<CardScreen>{
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text("Card number",
-                                  style: TextStyle(color: Colors.grey)),
+
                             ],
                           ),
-                          const SizedBox(height: 5),
+                          const SizedBox(height: 20),
                           SizedBox(
                             width: double.infinity,
                             child: TextFormField(
@@ -145,7 +147,7 @@ class _CardScreen extends  State<CardScreen>{
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 prefixIcon: Icon(Icons.credit_card,color: Colors.indigoAccent),
-                                labelText: '0000 0000 0000 0000 ',
+                                labelText: 'Card number',
                                 labelStyle: TextStyle(color: Colors.grey),
                               ),
                               validator: (val) {
@@ -162,11 +164,10 @@ class _CardScreen extends  State<CardScreen>{
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text("CardHolder Name",
-                                  style: TextStyle(color: Colors.grey)),
+
                             ],
                           ),
-                          const SizedBox(height: 5),
+                          const SizedBox(height: 20),
                           SizedBox(
                             width: double.infinity,
                             child: TextFormField(
@@ -187,7 +188,7 @@ class _CardScreen extends  State<CardScreen>{
                                   borderRadius: BorderRadius.circular(8),
                                 ),
 
-                                labelText: 'Name on card',
+                                labelText: 'CardHolder Name',
                                 labelStyle: TextStyle(color: Colors.grey),
                               ),
                               validator: (val) {
@@ -200,7 +201,7 @@ class _CardScreen extends  State<CardScreen>{
                               },
                             ),
                           ),
-                          const SizedBox(height: 5),
+                          const SizedBox(height: 20),
                           Row(
                             children: [
 
@@ -208,7 +209,6 @@ class _CardScreen extends  State<CardScreen>{
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("Expiry", style: TextStyle(color: Colors.grey)),
                                     SizedBox(height: 5),
                                     TextFormField(
                                       controller: expiryController,
@@ -225,7 +225,7 @@ class _CardScreen extends  State<CardScreen>{
                                               color: Colors.indigoAccent, width: 2),
                                           borderRadius: BorderRadius.circular(8),
                                         ),
-                                        labelText: 'MM/YY',
+                                        labelText: 'Expiry MM/YY',
                                         labelStyle: TextStyle(color: Colors.grey),
                                       ),
                                       validator: (val) {
@@ -247,7 +247,6 @@ class _CardScreen extends  State<CardScreen>{
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("CVV", style: TextStyle(color: Colors.grey)),
                                     SizedBox(height: 5),
                                     TextFormField(
                                       controller: cvvController,
@@ -272,7 +271,7 @@ class _CardScreen extends  State<CardScreen>{
                                               color: Colors.indigoAccent, width: 2),
                                           borderRadius: BorderRadius.circular(8),
                                         ),
-                                        labelText: '***',
+                                        labelText: 'CVV',
                                       ),
                                       validator: (val) {
                                         if (val == null || val.isEmpty || val.length < 4) {
@@ -302,7 +301,7 @@ class _CardScreen extends  State<CardScreen>{
           ),
           Container(
             padding: const EdgeInsets.all(16),
-            margin: const EdgeInsets.all(10),
+            margin: EdgeInsetsGeometry.symmetric(vertical: 16),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: Colors.white,
